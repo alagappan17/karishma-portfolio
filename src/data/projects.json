@@ -1,0 +1,38 @@
+[
+  {
+    "id": "zora-ai",
+    "number": "01",
+    "title": "Zora AI",
+    "category": "Enterprise AI / Procurement",
+    "summary": "An AI digital workforce that moves procurement from insight to accountable action.",
+    "tags": ["Agentic UX", "Systems", "Strategy"],
+    "theme": "butter",
+    "layout": "wide",
+    "mockup": "command",
+    "href": "/work/zora-ai"
+  },
+  {
+    "id": "contracts-navigator",
+    "number": "02",
+    "title": "AI-Powered Contracts Navigator",
+    "category": "Document Intelligence / Life Sciences",
+    "summary": "Conversational search, review, and human-in-the-loop validation for complex contract ecosystems.",
+    "tags": ["Trust", "AI", "Workflow"],
+    "theme": "lilac",
+    "layout": "tall",
+    "mockup": "document",
+    "href": "/work/contracts-navigator"
+  },
+  {
+    "id": "smart-marine",
+    "number": "03",
+    "title": "Smart Marine",
+    "category": "Supply Chain / Enterprise",
+    "summary": "A clear operational view of containers, purchase orders, and the decisions between them.",
+    "tags": ["Data", "Operations", "B2B"],
+    "theme": "blue",
+    "layout": "standard",
+    "mockup": "tracking",
+    "href": "/work/smart-marine"
+  }
+]

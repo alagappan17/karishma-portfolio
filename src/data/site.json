@@ -1,0 +1,60 @@
+{
+  "navigation": [
+    { "label": "Work", "href": "#work" },
+    { "label": "About", "href": "#about" },
+    { "label": "Experience", "href": "#experience" }
+  ],
+  "brand": {
+    "name": "Karishma Sharma",
+    "monogram": "KS",
+    "role": "Product designer for complex systems",
+    "description": "I turn dense enterprise workflows and emerging AI into product experiences that feel clear, capable, and human.",
+    "availability": "Open to senior product design conversations",
+    "location": "Delhi NCR, India"
+  },
+  "hero": {
+    "intro": "Hello, I’m Karishma.",
+    "headline": "I make ambitious systems feel beautifully obvious.",
+    "supportingText": "Fifteen years across product, UX strategy, and high-stakes enterprise platforms—now focused on the human side of AI.",
+    "cta": { "label": "Start a conversation", "href": "https://calendly.com/karishma-sharma/intro" },
+    "secondaryAction": { "label": "Explore selected work", "href": "#work" },
+    "stat": { "value": "15", "label": "years of making complexity usable", "ariaLabel": "Experience summary" },
+    "note": "A personal portfolio in progress. Project imagery is illustrative for now."
+  },
+  "work": {
+    "heading": "A few ways I’ve made hard things easier.",
+    "body": "Selected work across enterprise systems, AI, and operational products."
+  },
+  "about": {
+    "heading": "Design is where strategy becomes something people can actually use.",
+    "body": "I work from the fuzzy early questions through the moment a team ships. My favorite problems sit at the edge of intelligence, trust, and real operational work.",
+    "principles": [
+      { "title": "Make complexity legible", "description": "Give people a clear next move—even when the system underneath is anything but simple." },
+      { "title": "Keep people in the loop", "description": "Design AI with visible reasoning, meaningful review, and room for human judgment." },
+      { "title": "Sweat the interface", "description": "Translate strategy into a calm, precise, and responsive product experience." }
+    ]
+  },
+  "experience": {
+    "heading": "A practice built across industries, systems, and scales.",
+    "items": [
+      { "period": "2021—now", "company": "HashedIn by Deloitte", "role": "UI Lead / Product Design", "detail": "Enterprise AI, decision intelligence, and product systems." },
+      { "period": "2018—2021", "company": "PwC", "role": "Senior UX/UI Designer", "detail": "Research-led enterprise platforms and service design." },
+      { "period": "2011—2018", "company": "Product & technology teams", "role": "Senior Visual & Product Designer", "detail": "Digital products, brand systems, and customer journeys." }
+    ]
+  },
+  "contact": {
+    "heading": "Have a product problem worth caring about?",
+    "body": "I’m always glad to meet thoughtful teams building useful things.",
+    "cta": { "label": "Book a Calendly intro", "href": "https://calendly.com/karishma-sharma/intro" },
+    "email": "karishma.sharma2494@gmail.com",
+    "linkedInLabel": "LinkedIn",
+    "linkedInHref": "#"
+  },
+  "footer": { "label": "Designed with intent by Karishma Sharma", "year": "2026" }
+  ,"ui": {
+    "headerContactLabel": "Say hello",
+    "projectPlaceholderLabel": "Illustrative project placeholder",
+    "projectPlaceholderText": "Illustrative interface placeholder",
+    "projectStatusLabel": "Case study in progress"
+  }
+}

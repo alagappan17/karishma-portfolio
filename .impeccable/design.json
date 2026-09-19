@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T10:38:03Z",
+  "title": "Design System: Karishma Sharma Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Deep Editorial Ink", "canonical": "#152a40", "tonalRamp": ["oklch(18% 0.035 250)", "oklch(28% 0.04 250)", "oklch(38% 0.045 250)", "oklch(48% 0.05 250)", "oklch(58% 0.045 250)", "oklch(68% 0.035 250)", "oklch(78% 0.025 250)", "oklch(92% 0.01 250)"] },
+      "muted-ink": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#556478", "tonalRamp": ["oklch(22% 0.025 250)", "oklch(32% 0.03 250)", "oklch(42% 0.035 250)", "oklch(52% 0.04 250)", "oklch(62% 0.035 250)", "oklch(72% 0.025 250)", "oklch(82% 0.015 250)", "oklch(94% 0.005 250)"] },
+      "paper-canvas": { "role": "neutral", "displayName": "Warm Paper Canvas", "canonical": "#f7f5f0", "tonalRamp": ["oklch(28% 0.012 85)", "oklch(38% 0.012 85)", "oklch(48% 0.012 85)", "oklch(58% 0.012 85)", "oklch(68% 0.012 85)", "oklch(78% 0.012 85)", "oklch(88% 0.01 85)", "oklch(97% 0.006 85)"] },
+      "paper-surface": { "role": "neutral", "displayName": "Lifted Paper", "canonical": "#fcfbf8", "tonalRamp": ["oklch(30% 0.008 85)", "oklch(40% 0.008 85)", "oklch(50% 0.008 85)", "oklch(60% 0.008 85)", "oklch(70% 0.008 85)", "oklch(80% 0.008 85)", "oklch(90% 0.006 85)", "oklch(99% 0.003 85)"] },
+      "powder-blue": { "role": "secondary", "displayName": "Powder Blue", "canonical": "#dfe9fa", "tonalRamp": ["oklch(28% 0.04 255)", "oklch(38% 0.045 255)", "oklch(48% 0.05 255)", "oklch(58% 0.055 255)", "oklch(68% 0.05 255)", "oklch(78% 0.04 255)", "oklch(88% 0.03 255)", "oklch(96% 0.015 255)"] },
+      "pale-butter": { "role": "secondary", "displayName": "Pale Butter", "canonical": "#f6efc9", "tonalRamp": ["oklch(30% 0.05 95)", "oklch(40% 0.06 95)", "oklch(50% 0.07 95)", "oklch(60% 0.075 95)", "oklch(70% 0.07 95)", "oklch(80% 0.06 95)", "oklch(90% 0.045 95)", "oklch(97% 0.025 95)"] },
+      "muted-lilac": { "role": "tertiary", "displayName": "Muted Lilac", "canonical": "#ebe1f4", "tonalRamp": ["oklch(28% 0.04 310)", "oklch(38% 0.045 310)", "oklch(48% 0.05 310)", "oklch(58% 0.055 310)", "oklch(68% 0.05 310)", "oklch(78% 0.04 310)", "oklch(88% 0.03 310)", "oklch(96% 0.015 310)"] },
+      "signal-blue": { "role": "primary", "displayName": "Cobalt Signal", "canonical": "#263cce", "tonalRamp": ["oklch(22% 0.12 270)", "oklch(30% 0.15 270)", "oklch(38% 0.18 270)", "oklch(46% 0.2 270)", "oklch(54% 0.21 270)", "oklch(64% 0.18 270)", "oklch(76% 0.13 270)", "oklch(91% 0.06 270)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Editorial Display", "purpose": "Hero statements and major contact invitations." },
+      "headline": { "displayName": "Section Headline", "purpose": "Section and project titles." },
+      "body": { "displayName": "Supporting Body", "purpose": "Concise explanatory portfolio copy." },
+      "label": { "displayName": "Operational Label", "purpose": "Navigation, metadata, buttons, tags, and experience markers." }
+    },
+    "shadows": [
+      { "name": "project-rest", "value": "0 16px 34px rgba(47,62,82,.09)", "purpose": "Ambient separation beneath an interactive case-study card." },
+      { "name": "project-hover", "value": "0 26px 45px rgba(47,62,82,.15)", "purpose": "Confirms project-card hover without becoming theatrical." },
+      { "name": "button-hover", "value": "0 10px 18px rgba(21,42,64,.14)", "purpose": "Small tactile lift for primary and light action pills." }
+    ],
+    "motion": [
+      { "name": "link-color", "value": "color .2s ease", "purpose": "Quiet color feedback for navigation and text links." },
+      { "name": "action-lift", "value": "transform .2s ease, box-shadow .2s ease", "purpose": "Short hover lift for action pills." },
+      { "name": "card-lift", "value": "transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease", "purpose": "Soft case-study card lift." },
+      { "name": "reduced-motion", "value": "transition-duration: .01ms; animation-duration: .01ms; scroll-behavior: auto", "purpose": "Disables expressive movement for visitors who prefer reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "900px" },
+      { "name": "mobile", "value": "620px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ink Action Pill",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Primary conversation CTA for light tiles and paper surfaces.",
+      "html": "<a class=\"ds-btn-ink\" href=\"#\">Start a conversation <svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M3 10h12M10 5l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"/></svg></a>",
+      "css": ".ds-btn-ink { display:inline-flex; align-items:center; gap:11px; padding:13px 17px 13px 19px; border:1px solid transparent; border-radius:999px; background:#152a40; color:#fff; font-family:'DM Sans',Arial,sans-serif; font-size:13px; font-weight:700; line-height:1.2; text-decoration:none; transition:transform .2s ease,box-shadow .2s ease; } .ds-btn-ink svg { width:17px; height:17px; } .ds-btn-ink:hover { box-shadow:0 10px 18px rgba(21,42,64,.14); transform:translateY(-2px); } .ds-btn-ink:focus-visible { outline:3px solid #263cce; outline-offset:4px; }"
+    },
+    {
+      "name": "Light Action Pill",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Inverse call to action for a deep-ink tile.",
+      "html": "<a class=\"ds-btn-light\" href=\"#\">Book an intro <svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M3 10h12M10 5l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"/></svg></a>",
+      "css": ".ds-btn-light { display:inline-flex; align-items:center; gap:11px; padding:13px 17px 13px 19px; border:1px solid transparent; border-radius:999px; background:#f8f6f0; color:#152a40; font-family:'DM Sans',Arial,sans-serif; font-size:13px; font-weight:700; line-height:1.2; text-decoration:none; transition:transform .2s ease,box-shadow .2s ease; } .ds-btn-light svg { width:17px; height:17px; } .ds-btn-light:hover { box-shadow:0 10px 18px rgba(21,42,64,.14); transform:translateY(-2px); } .ds-btn-light:focus-visible { outline:3px solid #263cce; outline-offset:4px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "Pastel case-study entrypoint with editorial metadata and a restrained illustrative artifact.",
+      "html": "<a class=\"ds-project-card\" href=\"#\"><span class=\"ds-meta\">01 <span>Enterprise AI</span></span><div class=\"ds-window\"><i></i><b></b><em></em></div><div class=\"ds-copy\"><h3>Zora AI</h3><p>An AI workforce for accountable procurement action.</p><span class=\"ds-tag\">Agentic UX</span></div></a>",
+      "css": ".ds-project-card { display:flex; min-height:420px; flex-direction:column; padding:21px; border:1px solid rgba(21,42,64,.08); border-radius:18px; background:#f6efc9; box-shadow:0 16px 34px rgba(47,62,82,.09); color:#152a40; font-family:'DM Sans',Arial,sans-serif; text-decoration:none; transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease; } .ds-project-card:hover { box-shadow:0 26px 45px rgba(47,62,82,.15); transform:translateY(-6px); } .ds-project-card:focus-visible { outline:3px solid #263cce; outline-offset:4px; } .ds-meta { display:flex; justify-content:space-between; gap:12px; font-size:11px; font-weight:700; letter-spacing:.02em; } .ds-meta span { color:#556478; font-weight:600; } .ds-window { position:relative; width:80%; height:152px; margin:auto; border:1px solid rgba(21,42,64,.19); border-radius:12px; background:rgba(255,255,255,.52); box-shadow:12px 15px 0 rgba(21,42,64,.08); transform:rotate(-4deg); transition:transform .35s cubic-bezier(.2,.8,.2,1); } .ds-project-card:hover .ds-window { transform:rotate(-1deg) translateY(-5px); } .ds-window i,.ds-window b,.ds-window em { position:absolute; display:block; border-radius:5px; background:rgba(21,42,64,.16); } .ds-window i { top:16px; left:16px; width:45%; height:8px; } .ds-window b { top:42px; left:16px; width:18%; height:92px; } .ds-window em { top:42px; right:16px; width:55%; height:64px; } .ds-copy h3 { margin:0 0 9px; font-family:'Instrument Serif',Georgia,serif; font-size:42px; font-weight:400; letter-spacing:-.035em; line-height:.95; } .ds-copy p { margin:0 0 15px; color:#556478; font-size:13px; line-height:1.45; } .ds-tag { display:inline-block; padding:5px 8px; border:1px solid rgba(21,42,64,.16); border-radius:999px; font-size:10px; font-weight:600; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag-chip",
+      "description": "Compact discipline marker used within a case-study card.",
+      "html": "<span class=\"ds-chip\">Systems</span>",
+      "css": ".ds-chip { display:inline-block; padding:5px 8px; border:1px solid rgba(21,42,64,.16); border-radius:999px; color:#152a40; font-family:'DM Sans',Arial,sans-serif; font-size:10px; font-weight:600; line-height:1.2; }"
+    },
+    {
+      "name": "Portfolio Navigation",
+      "kind": "nav",
+      "description": "Minimal center navigation framed by a monogram and direct contact link.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary navigation\"><a class=\"ds-monogram\" href=\"#\">KS</a><div class=\"ds-nav-links\"><a href=\"#\">Work</a><a href=\"#\">About</a><a href=\"#\">Experience</a></div><a class=\"ds-contact\" href=\"#\">Say hello</a></nav>",
+      "css": ".ds-nav { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; min-height:58px; color:#152a40; font-family:'DM Sans',Arial,sans-serif; } .ds-nav a { color:inherit; font-size:13px; font-weight:600; text-decoration:none; } .ds-monogram { display:grid; width:42px; aspect-ratio:1; place-items:center; border:1px solid #152a40; border-radius:50%; font-size:12px !important; font-weight:700 !important; letter-spacing:-.04em; } .ds-nav-links { display:flex; gap:24px; } .ds-nav-links a { color:#556478; transition:color .2s ease; } .ds-contact { justify-self:end; text-decoration:underline !important; text-decoration-color:#98a5b5 !important; text-underline-offset:4px !important; } .ds-nav a:hover { color:#263cce; } .ds-nav a:focus-visible { outline:3px solid #263cce; outline-offset:4px; border-radius:3px; }"
+    },
+    {
+      "name": "Bento Editorial Tile",
+      "kind": "custom",
+      "description": "Reusable warm-paper or pastel field for a single editorial idea.",
+      "html": "<section class=\"ds-tile\"><p class=\"ds-kicker\">Hello, I’m Karishma.</p><h2>I make ambitious systems feel beautifully obvious.</h2><p class=\"ds-body\">A concise tile holds one thought with room for it to land.</p></section>",
+      "css": ".ds-tile { display:flex; min-height:300px; flex-direction:column; justify-content:flex-end; padding:clamp(24px,3vw,44px); border-radius:18px; background:#fcfbf8; color:#152a40; font-family:'DM Sans',Arial,sans-serif; } .ds-kicker { margin:0 0 18px; color:#263cce; font-size:15px; font-weight:700; } .ds-tile h2 { max-width:10ch; margin:0 0 22px; font-family:'Instrument Serif',Georgia,serif; font-size:clamp(3rem,8vw,5.5rem); font-weight:400; letter-spacing:-.04em; line-height:.87; } .ds-body { max-width:44ch; margin:0; color:#556478; font-size:16px; line-height:1.55; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Worktable",
+    "overview": "This is a personal editorial portfolio in Experience mode: the work takes the foreground, while navigation and controls recede into a calm, precise frame. Warm paper gives the page a tactile, considered base; deep navy provides the seriousness needed for complex enterprise and AI work; a rotating family of powder blue, pale butter, and muted lilac tiles gives each story room to breathe.\n\nThe system behaves like an arranged worktable rather than a conventional stacked website. Generous bento tiles create a paced sequence of introduction, proof, project work, perspective, experience, and contact. Expressive serif headlines carry the human point of view; compact sans-serif UI copy keeps the experience practical and legible. Case-study routes inherit this world so the homepage reads as the front door, not a visual detour.",
+    "keyCharacteristics": ["Editorial, personal, and quietly confident rather than promotional.", "Warm light surfaces with deep-navy contrast and one restrained cobalt signal.", "Varied rounded bento tiles that make the portfolio feel composed, not templated.", "Large, close-set serif statements paired with compact, clear sans-serif information.", "Minimal motion: small hover lifts and deliberate scroll behavior, never ambient spectacle."],
+    "rules": [
+      { "name": "The Color-Field Rule", "body": "Use a single pastel field per tile and let paper or ink create the counterpoint. Do not combine multiple pastels inside one card.", "section": "colors" },
+      { "name": "The Two-Voice Rule", "body": "Use Instrument Serif for authored statements and project titles; use DM Sans for everything visitors need to scan, compare, or operate.", "section": "typography" },
+      { "name": "The Varied-Grid Rule", "body": "Keep tile proportions intentionally uneven within a section, then use the shared gap and rounded edges to make the composition feel like one system.", "section": "layout" },
+      { "name": "The Flat-By-Default Rule", "body": "Tiles stay flat at rest. Reserve lifted depth for interactive case-study cards and primary actions.", "section": "elevation" }
+    ],
+    "dos": ["Do lead major statements and project titles with Instrument Serif, then use DM Sans for the supporting information around them.", "Do create hierarchy through varied tile proportions, paper space, and tonal fields before adding borders or effects.", "Do give each project or editorial idea one clear pastel or paper tile field.", "Do preserve the shared bento corner language and repeated interior gap when extending into case-study routes.", "Do respect reduced-motion preferences by removing transitions and smooth scrolling."],
+    "donts": ["Don't turn the portfolio into a dense dashboard, marketing funnel, or uniform card gallery.", "Don't use more than one pastel field within a single bento tile or project card.", "Don't add heavy shadows, gradients, glassmorphism, or decorative motion that competes with the work.", "Don't use Instrument Serif for dense metadata, navigation, tags, or long explanatory paragraphs.", "Don't make hover movement necessary to understand or access content."]
+  }
+}
