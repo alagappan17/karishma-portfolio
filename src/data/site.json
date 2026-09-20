@@ -1,60 +1,99 @@
 {
+  "brand": { "name": "Karishma Sharma", "monogram": "KS", "role": "Designer for human judgment in complex systems", "location": "Delhi NCR, India" },
   "navigation": [
-    { "label": "Work", "href": "#work" },
-    { "label": "About", "href": "#about" },
-    { "label": "Experience", "href": "#experience" }
+    { "label": "About", "href": "/#about" },
+    { "label": "Work", "href": "/#work" },
+    { "label": "Experience", "href": "/#experience" }
   ],
-  "brand": {
-    "name": "Karishma Sharma",
-    "monogram": "KS",
-    "role": "Product designer for complex systems",
-    "description": "I turn dense enterprise workflows and emerging AI into product experiences that feel clear, capable, and human.",
-    "availability": "Open to senior product design conversations",
-    "location": "Delhi NCR, India"
-  },
-  "hero": {
-    "intro": "Hello, I’m Karishma.",
-    "headline": "I make ambitious systems feel beautifully obvious.",
-    "supportingText": "Fifteen years across product, UX strategy, and high-stakes enterprise platforms—now focused on the human side of AI.",
-    "cta": { "label": "Start a conversation", "href": "https://calendly.com/karishma-sharma/intro" },
-    "secondaryAction": { "label": "Explore selected work", "href": "#work" },
-    "stat": { "value": "15", "label": "years of making complexity usable", "ariaLabel": "Experience summary" },
-    "note": "A personal portfolio in progress. Project imagery is illustrative for now."
-  },
-  "work": {
-    "heading": "A few ways I’ve made hard things easier.",
-    "body": "Selected work across enterprise systems, AI, and operational products."
+  "home": {
+    "greeting": "Hello, I’m Karishma.",
+    "heading": "I design clarity for complex work.",
+    "body": "My work gives people a clear way to review, decide, and move forward inside systems that are anything but simple.",
+    "primaryAction": { "label": "Read selected case studies", "href": "/work" },
+    "secondaryAction": { "label": "How I work", "href": "/#about" },
+    "profileLabel": "Portfolio of Karishma Sharma",
+    "introduction": {
+      "segments": [
+        { "text": "I’m a " },
+        { "text": "UI/UX designer", "highlight": "blue" },
+        { "text": " who makes " },
+        { "text": "complex tools", "highlight": "lilac" },
+        { "text": " feel clear and usable. I work across AI, enterprise systems, and the everyday operations behind them. My focus is simple: give people the context, confidence, and control to make " },
+        { "text": "good decisions.", "highlight": "acid" }
+      ]
+    },
+    "workHeading": "Selected work, where clarity changes the work itself.",
+    "workBody": "A selection of interfaces shaped around real decisions: reviewing agreements, tracing shipments, and directing intelligent systems.",
+    "workProjectSlugs": ["zora-ai", "contracts-navigator", "smart-marine", "ai-assist", "smart-manufacturing", "procurement-intelligence"],
+    "moreWorkHeading": "Other studies in systems, services, and emerging tools.",
+    "archiveLabel": "Browse all projects",
+    "archiveHref": "/work"
   },
   "about": {
-    "heading": "Design is where strategy becomes something people can actually use.",
-    "body": "I work from the fuzzy early questions through the moment a team ships. My favorite problems sit at the edge of intelligence, trust, and real operational work.",
+    "heading": "Strategy only matters when someone can act on it.",
+    "body": "I move between the unresolved early question and the final interface detail. The work I care about most lives where intelligence, trust, and everyday operational pressure meet.",
     "principles": [
-      { "title": "Make complexity legible", "description": "Give people a clear next move—even when the system underneath is anything but simple." },
-      { "title": "Keep people in the loop", "description": "Design AI with visible reasoning, meaningful review, and room for human judgment." },
-      { "title": "Sweat the interface", "description": "Translate strategy into a calm, precise, and responsive product experience." }
+      { "title": "Give the work a shape", "description": "Find the decisive moment in a sprawling workflow, then make the next move feel obvious." },
+      { "title": "Leave room for judgment", "description": "Make intelligent systems explainable, reviewable, and answerable to the people using them." },
+      { "title": "Make the details carry meaning", "description": "Use hierarchy, language, and interaction to turn a good direction into a dependable experience." }
     ]
   },
   "experience": {
-    "heading": "A practice built across industries, systems, and scales.",
+    "heading": "Fifteen years of making invisible work visible.",
+    "body": "Choose a chapter to see the questions, collaborations, and bodies of work that shaped it.",
+    "expandLabel": "Open this chapter",
+    "collapseLabel": "Close this chapter",
+    "projectLabel": "Work from this chapter",
+    "awardLabel": "Recognition",
     "items": [
-      { "period": "2021—now", "company": "HashedIn by Deloitte", "role": "UI Lead / Product Design", "detail": "Enterprise AI, decision intelligence, and product systems." },
-      { "period": "2018—2021", "company": "PwC", "role": "Senior UX/UI Designer", "detail": "Research-led enterprise platforms and service design." },
-      { "period": "2011—2018", "company": "Product & technology teams", "role": "Senior Visual & Product Designer", "detail": "Digital products, brand systems, and customer journeys." }
+      {
+        "period": "2021 to present",
+        "company": "HashedIn by Deloitte",
+        "role": "UI Lead, Product Design",
+        "duration": "5+ years",
+        "highlighted": true,
+        "summary": "Shaping enterprise AI work into explainable interfaces that let people guide, inspect, and trust the system.",
+        "details": ["Architected agentic AI experiences across sourcing, contracts, category, and autonomous purchase-order workflows.", "Led 0 to 1 design for AI marketing and generative content products with product managers and AI engineers.", "Standardized component specifications, handoff guidelines, and design QA workflows, reducing frontend rework by 75 to 85 percent.", "Mentored designers and cohorts on design thinking, Figma practice, and AI-accelerated workflows."],
+        "tags": ["Enterprise AI", "Agentic UX", "Design systems", "Leadership"],
+        "awards": ["POD Award Apr 2023", "Excellence Award Feb 2024", "Excellence Award Oct 2024", "Torch Bearer Sep 2025", "Excellence Award Jul 2026", "High-Five Award Aug 2026"],
+        "projectSlugs": ["zora-ai", "contracts-navigator", "ai-marketing-hub", "vanguard-portal", "ai-video-generation"]
+      },
+      {
+        "period": "2018 to 2021",
+        "company": "PwC",
+        "role": "Senior UX/UI Designer",
+        "duration": "3 years",
+        "highlighted": false,
+        "summary": "Turned research, client context, and complex requirements into clear product direction teams could build from.",
+        "details": ["Led user research, customer journey mapping, and interface design for enterprise digital solutions.", "Translated interviews, usability testing, and heuristic evaluations into data-backed design recommendations.", "Built structured component libraries and supported high-fidelity agile releases."],
+        "tags": ["UX research", "Service design", "Enterprise platforms"],
+        "awards": [],
+        "projectSlugs": []
+      },
+      {
+        "period": "2011 to 2018",
+        "company": "Technology and product companies",
+        "role": "Senior Visual and Product Designer",
+        "duration": "7 years",
+        "highlighted": false,
+        "summary": "Built a visual and interaction foundation across e-commerce and consumer software, where first impressions had to do real work.",
+        "details": ["Designed end-to-end web and mobile interfaces, responsive applications, and visual brand assets.", "Improved onboarding and checkout journeys through wireframing, interactive prototyping, and team alignment."],
+        "tags": ["Product design", "Responsive web", "Brand systems"],
+        "awards": [],
+        "projectSlugs": []
+      }
     ]
   },
   "contact": {
-    "heading": "Have a product problem worth caring about?",
-    "body": "I’m always glad to meet thoughtful teams building useful things.",
-    "cta": { "label": "Book a Calendly intro", "href": "https://calendly.com/karishma-sharma/intro" },
-    "email": "karishma.sharma2494@gmail.com",
-    "linkedInLabel": "LinkedIn",
-    "linkedInHref": "#"
+    "heading": "Let’s connect.",
+    "body": "Whether you have a project in mind, a perspective to share, or simply want to say hello, I’d love to hear from you.",
+    "links": [
+      { "label": "Email", "href": "mailto:karishma.sharma2494@gmail.com" },
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/sharma-karishma/" },
+      { "label": "Behance", "href": "https://www.behance.net/karishma_Sharma" }
+    ]
   },
-  "footer": { "label": "Designed with intent by Karishma Sharma", "year": "2026" }
-  ,"ui": {
-    "headerContactLabel": "Say hello",
-    "projectPlaceholderLabel": "Illustrative project placeholder",
-    "projectPlaceholderText": "Illustrative interface placeholder",
-    "projectStatusLabel": "Case study in progress"
-  }
+  "archive": { "heading": "An index of systems, interfaces, and decisions.", "body": "Projects in enterprise software, intelligent tools, operational visibility, and high-trust workflows.", "filterLabel": "Filter the index", "allLabel": "All work" },
+  "caseStudy": { "backLabel": "Back to the index", "metadataLabel": "Project notes", "nextLabel": "Continue to the next study", "imagePlaceholderLabel": "Illustrative project artifact", "roleLabel": "Contribution", "industryLabel": "Context", "durationLabel": "Timeframe", "platformLabel": "Surface", "toolsLabel": "Working tools" },
+  "footer": { "label": "Selected work by Karishma Sharma", "year": "2026" }
 }

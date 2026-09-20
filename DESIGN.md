@@ -1,213 +1,257 @@
 ---
 name: Karishma Sharma Portfolio
-description: An editorial, bento-led portfolio for making complex product work feel clear and human.
+description: A high-contrast personal product-design portfolio built as a graphic poster wall for the work.
 colors:
-  ink: "#152a40"
-  muted-ink: "#556478"
-  paper-canvas: "#f7f5f0"
-  paper-surface: "#fcfbf8"
-  powder-blue: "#dfe9fa"
-  pale-butter: "#f6efc9"
-  muted-lilac: "#ebe1f4"
-  signal-blue: "#263cce"
-  line: "rgba(21,42,64,.14)"
-  inverse-paper: "#f8f6f0"
+  ink: "#141511"
+  muted: "#5d615a"
+  canvas: "#f2f0eb"
+  paper: "#fbfaf7"
+  blue: "#d5e8ff"
+  acid: "#d7efa0"
+  lilac: "#d8d0fb"
+  peach: "#ffb4a1"
+  signal: "#5546d8"
+  line: "rgba(20,21,17,.14)"
 typography:
   display:
-    fontFamily: "Instrument Serif, Georgia, serif"
-    fontSize: "clamp(4rem, 8vw, 7.5rem)"
-    fontWeight: 400
-    lineHeight: 0.87
-    letterSpacing: "-0.04em"
+    fontFamily: "Space Grotesk, sans-serif"
+    fontSize: "clamp(3.8rem, 6.5vw, 5.9rem)"
+    fontWeight: 600
+    lineHeight: 0.9
+    letterSpacing: "-0.055em"
   headline:
-    fontFamily: "Instrument Serif, Georgia, serif"
-    fontSize: "clamp(2.7rem, 5vw, 5.4rem)"
-    fontWeight: 400
-    lineHeight: 0.92
-    letterSpacing: "-0.04em"
+    fontFamily: "Space Grotesk, sans-serif"
+    fontSize: "clamp(2.9rem, 5.25vw, 5.5rem)"
+    fontWeight: 600
+    lineHeight: 0.9
+    letterSpacing: "-0.055em"
   body:
-    fontFamily: "DM Sans, Arial, sans-serif"
+    fontFamily: "Manrope, Arial, sans-serif"
     fontSize: "16px"
     fontWeight: 400
-    lineHeight: 1.55
+    lineHeight: 1.78
   label:
-    fontFamily: "DM Sans, Arial, sans-serif"
-    fontSize: "13px"
-    fontWeight: 700
-    lineHeight: 1.2
+    fontFamily: "Manrope, Arial, sans-serif"
+    fontSize: "12px"
+    fontWeight: 800
+    lineHeight: 1.3
 rounded:
-  bento: "18px"
+  bento: "16px"
   mockup: "12px"
+  recognition: "10px"
   pill: "999px"
   circular: "50%"
 spacing:
-  micro: "6px"
-  tight: "12px"
-  tile-gap: "16px"
-  section: "112px"
-  desktop-gutter: "24px"
-  tile-padding: "clamp(24px, 3vw, 44px)"
+  grid-gap: "14px"
+  compact-gap: "10px"
+  section: "132px"
+  desktop-gutter: "28px"
+  tile-padding: "clamp(28px, 4vw, 58px)"
 components:
   button-ink:
     backgroundColor: "{colors.ink}"
-    textColor: "#fff"
+    textColor: "{colors.paper}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
-    padding: "13px 17px 13px 19px"
-  button-light:
-    backgroundColor: "{colors.inverse-paper}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "13px 17px 13px 19px"
+    padding: "14px 17px 14px 20px"
   project-card:
-    backgroundColor: "{colors.powder-blue}"
+    backgroundColor: "{colors.blue}"
     textColor: "{colors.ink}"
     rounded: "{rounded.bento}"
     padding: "21px"
-  tag-chip:
-    textColor: "{colors.ink}"
+  filter-chip:
+    textColor: "{colors.muted}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
-    padding: "5px 8px"
+    padding: "9px 14px"
 ---
 
 # Design System: Karishma Sharma Portfolio
 
 ## Overview
 
-**Creative North Star: "The Editorial Worktable"**
+**Creative North Star: "The Personal Poster Wall"**
 
-This is a personal editorial portfolio in **Experience** mode: the work takes the foreground, while navigation and controls recede into a calm, precise frame. Warm paper gives the page a tactile, considered base; deep navy provides the seriousness needed for complex enterprise and AI work; a rotating family of powder blue, pale butter, and muted lilac tiles gives each story room to breathe.
+This personal product-design portfolio is in **Experience** mode. The work leads from the first viewport; the interface is a sharp, minimal frame around it. The system takes its confidence from oversized modern posters arranged on a quiet canvas: graphic color fields, close-set grotesk type, and deliberately uneven compositions make it feel authored and immediate.
 
-The system behaves like an arranged worktable rather than a conventional stacked website. Generous bento tiles create a paced sequence of introduction, proof, project work, perspective, experience, and contact. Expressive serif headlines carry the human point of view; compact sans-serif UI copy keeps the experience practical and legible. Case-study routes inherit this world so the homepage reads as the front door, not a visual detour.
+The homepage uses bold but controlled compositions. Its asymmetric three-panel hero introduces Karishma through a paper statement, an ink monogram poster, and an acid-green point of view. Featured and archive work use a variable 12-column grid so cards change proportion and vertical position without losing their common rhythm. Case studies slow down into a focused reading surface while retaining the same color fields and typographic voice.
+
+Motion is a coordinated layer within this poster wall, not a separate visual language. Motion powers the first-load hero sequence, one-time section entrances, archive reflow, and expandable experience details. Lucide icons provide the shared, outlined symbol vocabulary for actions, navigation, recognition, related work, and a few deliberately placed poster accents.
+
+The presentation layer is separate from the portfolio itself. Typed JSON owns site copy and project facts; Markdown owns long-form case-study narrative. Components compose those sources but never duplicate their content.
 
 **Key Characteristics:**
 
-- Editorial, personal, and quietly confident rather than promotional.
-- Warm light surfaces with deep-navy contrast and one restrained cobalt signal.
-- Varied rounded bento tiles that make the portfolio feel composed, not templated.
-- Large, close-set serif statements paired with compact, clear sans-serif information.
-- Minimal motion: small hover lifts and deliberate scroll behavior, never ambient spectacle.
+- Experience-led, personal, and graphic rather than editorial or promotional.
+- Oversized Space Grotesk headlines with tight tracking and a practical Manrope information layer.
+- Quiet warm canvas, near-black ink, paper, and five distinct project color fields.
+- An asymmetric three-panel personal-poster hero, not a conventional banner.
+- Variable 12-column featured and archive compositions instead of a uniform card gallery.
+- Shared 16px bento corners and a repeated 14px internal grid gap.
+- Coordinated Motion entrances and layout changes that reinforce, never replace, content hierarchy.
+- A hover-, focus-, and click-expandable experience timeline with recognition and related work.
+- Desktop-only contextual cursor labels, plus a complete reduced-motion fallback.
+- JSON project data paired with Markdown case-study writing.
 
 ## Colors
 
-The palette is a soft paper-and-pastel field grounded by dark ink; color differentiates editorial moments and project identities rather than decorating every element.
+The palette uses quiet neutrals as the gallery wall and saturated light fields as individual work posters. One field owns each tile, so color communicates hierarchy and project identity before decoration.
 
 ### Primary
 
-- **Deep Editorial Ink:** the principal contrast color for primary tiles, text, outlines, and directional controls. It establishes focus and authority without defaulting to black.
-- **Cobalt Signal:** a sparingly used interactive and indexing signal for greetings, links, focus treatment, and small visual anchors.
+- **Near-Black Ink:** principal text, outline, and high-contrast panel color for actions, the ink hero panel, and experience.
+- **Signal Violet:** interactive color for hover, visible focus, selection, and the contact panel.
 
 ### Secondary
 
-- **Powder Blue:** the cool, optimistic tile field for experience and operational clarity.
-- **Pale Butter:** the warm, reflective tile field for featured work and personal perspective.
+- **Poster Blue:** cool field for interface-forward and operational work.
+- **Acid Green:** energetic field for featured work, availability, and high-attention calls to action.
+- **Peach:** warm personal field for the about statement and human perspective.
 
 ### Tertiary
 
-- **Muted Lilac:** the quiet, imaginative tile field for notes and document-oriented project work.
+- **Soft Lilac:** supporting project field that contrasts with blue, acid, paper, and ink.
 
 ### Neutral
 
-- **Paper Canvas:** the warm off-white page field that lets the bento composition feel collected and editorial.
-- **Paper Surface:** the slightly brighter light tile surface for the hero and experience area.
-- **Muted Ink:** supporting copy and secondary navigation color; it maintains hierarchy without weakening readability.
-- **Hairline Ink:** the low-contrast divider and border treatment that structures cards without boxing the page in.
+- **Canvas:** warm grey page ground for the poster fields.
+- **Paper:** lifted off-white panel for primary statements, quiet work, and inverse text pairings.
+- **Muted Ink:** supporting copy and inactive navigation color.
+- **Hairline Ink:** low-contrast divider and control-border treatment.
 
-**The Color-Field Rule.** Use a single pastel field per tile and let paper or ink create the counterpoint. Do not combine multiple pastels inside one card.
+**The One-Field Rule.** Assign each bento tile and project to one named color field. Do not layer multiple pastel fields inside a card.
 
 ## Typography
 
-**Display Font:** Instrument Serif (with Georgia fallback)
+**Display Font:** Space Grotesk (with sans-serif fallback)
 
-**Body Font:** DM Sans (with Arial fallback)
+**Body Font:** Manrope (with Arial fallback)
 
-**Character:** Instrument Serif makes the portfolio feel authored and editorial; DM Sans keeps enterprise context, labels, and navigation crisply factual. The contrast is intentional: human perspective in display type, operational clarity in supporting type.
+**Character:** Space Grotesk supplies the large, compact contemporary voice. Manrope keeps navigation, metadata, controls, and reading copy calm and highly legible. Hierarchy comes from grotesk scale, weight, tracking, and space rather than a serif contrast.
 
 ### Hierarchy
 
-- **Display:** reserved for the homepage’s first statement and major invitation moments; set large, light-weight, and tightly tracked to make each phrase feel like a headline rather than a banner.
-- **Headline:** used for section and project titles; it keeps the same serif voice at a smaller, responsive scale.
-- **Body:** used for explanatory copy; keep paragraphs compact and within the existing restrained measure so bento tiles remain airy.
-- **Label:** used for navigation, buttons, tags, project metadata, and experience markers; strong-weight sans type supports fast scanning.
+- **Display:** oversized responsive scale, 600 weight, tight negative tracking, and compressed leading for the hero and major invitations.
+- **Headline:** the same close-set display family at a smaller responsive scale for section titles, project names, archive titles, and Markdown headings.
+- **Body:** relaxed leading and a constrained measure for explanations and case-study prose.
+- **Label:** small, strong Manrope for navigation, buttons, filters, project metadata, dates, and compact links.
 
-**The Two-Voice Rule.** Use Instrument Serif for authored statements and project titles; use DM Sans for everything visitors need to scan, compare, or operate.
+**The Grotesk Scale Rule.** Do not introduce a serif or a third display voice. Create major hierarchy through Space Grotesk scale and tight tracking; use Manrope where information must be scanned or read at length.
 
 ## Layout
 
-The desktop canvas is centered and capped at 1360px, with a slim outer gutter and a repeated 16px interior rhythm. The hero is an asymmetric four-tile grid: a large introductory paper tile is counterbalanced by a blue statistic, navy availability panel, and lilac note. Selected work continues that varied geometry with wide, tall, and vertically offset cards. Later sections alternate two-column editorial arrangements, nested principle tiles, and a calm tabular experience surface.
+The desktop shell is capped at 1440px with a 28px outer gutter. A 14px gap is the recurring internal rhythm. The header is an even three-part line: mark at left, navigation in the center, and location at right.
 
-At 900px, the hero and project grids resolve into two columns while preserving the large-first hierarchy. At 620px, the experience becomes a single vertical sequence: header navigation simplifies, every bento grid stacks, gaps tighten, and tiles keep their generous internal breathing room. The system favors composition over strict symmetry, but never sacrifices a clear reading order.
+The homepage hero is an asymmetric three-panel composition. A large paper introduction column carries the headline; a narrow ink personal-poster panel uses the monogram, orbital circles, and small acid and peach markers; an acid statement panel carries the point of view and conversation action. This is composition and identity, not a generic landing-page banner.
 
-**The Varied-Grid Rule.** Keep tile proportions intentionally uneven within a section, then use the shared gap and rounded edges to make the composition feel like one system.
+Featured work and the archive use 12-column variable grids. The featured composition resolves into a 7-column lead card, a 5-column offset companion, and a final 8-column card starting at column 5. The archive repeats a deliberately uneven five-card cadence with 7, 5, 3, 5, and 4-column spans. More-work tiles use the same grid in a denser supporting composition. Shared gaps and 16px corners unify changing proportions.
+
+At 900px, the hero becomes a large first row plus two supporting panels and project grids move to six columns. Case-study metadata becomes an inline three-column facts grid. At 620px, the hero stacks, center navigation hides, featured and archive cards become one column, and smaller work becomes two columns. Preserve reading order before preserving any offset. The custom cursor is limited to fine-pointer desktop input and is removed on mobile.
+
+**The Variable-Grid Rule.** Use the 12-column system to create hierarchy through span, offset, and height. Do not flatten featured work or the archive into equal cards on desktop.
 
 ## Elevation & Depth
 
-Depth is mostly tonal and compositional: paper, pastel, and ink tiles sit flat against the warm canvas. Project cards are the exception, receiving a soft ambient shadow to mark them as navigable case-study entry points; their hover state becomes slightly more lifted. No hard shadows, glass effects, or heavy borders belong in this world.
+Depth is flat and compositional. Paper, ink, and colored bento fields sit directly on the canvas. Interactive project cards and the primary button get a small upward movement and diffuse ink shadow on hover; mockup placeholders rotate slightly at rest and settle level on card hover. No shadow is structural and no surface floats at rest.
 
 ### Shadow Vocabulary
 
-- **Project Rest:** a diffuse cool-ink shadow that separates selected-work cards from the canvas without making them look floating.
-- **Project Hover:** a larger diffuse shadow paired with a small upward move to confirm that the card is an entry point.
-- **Button Hover:** a compact shadow paired with the same small upward move; it adds tactility to an otherwise flat interface.
+- **Action Hover:** compact diffuse ink shadow for the primary button.
+- **Card Hover:** wider low-contrast ink shadow confirming a project is a case-study entry point.
 
-**The Flat-By-Default Rule.** Tiles stay flat at rest. Reserve lifted depth for interactive case-study cards and primary actions.
+**The Flat-First Rule.** Convey hierarchy with span, color, typography, and space first. Use shadow only as responsive interaction feedback.
 
 ## Shapes
 
-Gently rounded rectangles are the system’s recurring form: bento tiles, project cards, principles, and experience surfaces share the same soft corner language. Mockup windows use a smaller radius so they read as contained artifacts inside a tile. Pills are reserved for actions and tags; circles carry compact directional and status cues such as the monogram, project arrow, and availability light.
+Gently rounded poster rectangles define the system. Bento surfaces and project cards use a 16px radius; contained interface placeholders and images use 12px; compact recognition tiles use 10px. Actions and filters are fully pill-shaped. The monogram and orbit motifs are the only circular anchors.
+
+Borders are purposeful and spare: a faint ink hairline separates mockup frames, metadata rows, and inactive filter chips. There are no glass treatments, heavy rounded containers, or decorative gradients.
 
 ## Components
 
 ### Buttons
 
-- **Character:** concise, tactile calls to action that stay secondary to the work.
-- **Shape:** fully pill-shaped with compact asymmetric horizontal padding for label-plus-arrow composition.
-- **Primary:** ink fill with inverse-paper text, used for conversation and contact actions.
-- **Light:** inverse-paper fill with ink text, used on ink fields such as the contact panel.
-- **Hover / Focus:** hover lifts slightly with a soft shadow; keyboard focus uses a clear cobalt outline with breathing room.
-
-### Text Links
-
-- **Character:** minimal inline navigation with an arrow, keeping secondary actions quiet.
-- **State:** shift from ink to cobalt on hover; retain the global visible focus treatment.
+- **Character:** compact, high-contrast conversation actions that yield priority to the work.
+- **Shape:** full pill with deliberate label-and-arrow spacing.
+- **Primary:** ink fill with paper text and the shared small bold label treatment.
+- **Hover / Focus:** hover rises slightly with a compact shadow; keyboard focus uses an offset violet outline.
 
 ### Project Cards / Case-Study Entrypoints
 
-- **Corner Style:** shared bento rounding with a contained smaller-radius illustrative window.
-- **Background:** one of the project pastel fields; the card itself is the color block.
-- **Content Pattern:** number and category at the top, illustrative interface artifact in the middle, then a serif project title, short summary, discipline tags, and circular arrow.
-- **State:** lift, deepen the soft shadow, and subtly relax the mockup rotation on hover. The entire card is one accessible link to its case-study route.
+- **Character:** each card is a small project poster and the entire tile is the accessible case-study link.
+- **Corner Style:** shared 16px bento rounding with a 12px mockup window inside.
+- **Background:** one named project field, including blue, acid, lilac, paper, or ink with inverse text.
+- **Content Pattern:** compact category and industry metadata, abstract interface placeholder, large Space Grotesk title, summary, tags, and directional arrow.
+- **State:** cards lift on hover and the slightly rotated placeholder settles toward level. Movement is confirmatory, never required for comprehension.
 
-### Tag Chips
+### Archive Filters
 
-- **Style:** compact ink-outline pills with strong sans labels; use them only for concise disciplines or classifications.
+- **Style:** small pill controls with muted text and a hairline outline.
+- **State:** active or hovered controls become ink with paper text and refine the current work grid in place.
 
 ### Navigation
 
-- **Style:** a centered small-label navigation, monogram circle at left, and underlined contact link at right.
-- **State:** muted ink at rest, cobalt on hover, and a visible cobalt focus outline. On narrow screens, hide the centered navigation and preserve the monogram and contact action.
+- **Style:** lightweight three-part header with monogram, compact center navigation, and location link.
+- **State:** muted at rest and violet on hover, with the global visible-focus outline.
+- **Mobile:** hide center navigation and written portfolio name while retaining monogram and location link.
 
-### Bento Tiles
+### Personal Poster Hero
 
-- **Character:** rounded editorial fields that hold one idea each: introduction, proof point, availability, note, perspective, or experience.
-- **Internal Padding:** responsive and generous; text aligns to the tile’s purpose rather than a universal vertical position.
+- **Character:** a three-panel self-portrait built from typography, color, and abstract geometry rather than photography.
+- **Structure:** paper statement panel, ink monogram panel with orbital circles and colored dots, and acid perspective panel with primary action.
+- **Rule:** preserve the asymmetric panel hierarchy. Do not turn this signature composition into a centered headline with generic supporting cards.
+
+### Motion and Entrances
+
+- **First load:** the three hero panels enter as one coordinated sequence. The hero staggers its children by 110ms after an 80ms delay; the statement panels rise 30px while the monogram poster scales from 0.94. Use the shared Motion ease `[0.16, 1, 0.3, 1]` and 650 to 700ms durations.
+- **In view:** homepage sections use a single 22px rise and opacity reveal when at least 20 percent is visible. Each section reveals once, so browsing remains calm and repeat visits do not re-play the page.
+- **Reflow:** archive cards use Motion layout animation during filtering. The grid arrangement changes as content changes, rather than teleporting items.
+- **Rule:** use Motion for entrances, structural disclosure, and layout continuity only. Do not add looping decoration, scroll-bound spectacle, or motion whose state cannot also be understood without movement.
+
+### Expandable Experience Timeline
+
+- **Character:** an ink-on-dark chronology that turns resume facts into a focused, accessible exploration surface.
+- **Interaction:** hovering, focusing, or clicking an experience entry activates it. The active entry receives a subtle light field, its chevron rotates, and its details animate open or closed through `AnimatePresence` in 280ms. The button exposes its state through `aria-expanded`.
+- **Content:** each active entry may show its summary, detail list, tags, recognition, and related case-study links. Deloitte recognition is shown as compact lilac award marks. Related links use the selected project records, not duplicated titles.
+- **Data rule:** `src/data/site.json` owns the experience items, labels, awards, and `projectSlugs`. Each slug maps to `src/data/projects.json` by `project.slug`, then routes to `/work/:slug`.
+
+### Contextual Cursor and Icons
+
+- **Cursor:** on fine-pointer desktop devices, the custom cursor follows the pointer with a spring and hides the native pointer on labelled interactive targets. A compact pointer is the resting state; it expands to a 76px ink circle with a short `data-cursor-label` on contextual targets. It is presentational only and never conveys essential information.
+- **Icon system:** use Lucide React exclusively for interface symbols. Keep icons outlined, compact, and secondary to text. Pair an icon with visible text for actions and labels; use `aria-hidden` when adjacent text already names the action.
+- **Placement:** icons may clarify navigation, buttons, contact links, experience periods, recognition, related case studies, and project directions. Decorative Sparkles and PenTool motifs are reserved for the hero and experience introduction, where they reinforce the personal-poster composition. Do not scatter decorative icons across cards or prose.
+- **Accessibility:** `MotionConfig` follows the user's reduced-motion setting. With reduced motion, the cursor does not render and CSS reduces transitions and animations to effectively instant while preserving every control and disclosure state.
+
+### Case-Study Reading Surface
+
+- **Hero:** paper headline panel paired with a themed artifact placeholder and violet category kicker.
+- **Metadata:** factual project details occupy a sticky desktop rail and switch to an inline grid at smaller sizes.
+- **Narrative:** Markdown provides headings, paragraphs, lists, and images. Manrope prose keeps a narrow measure; Space Grotesk headings preserve the graphic voice.
+- **Next project:** one themed poster tile follows the narrative as direct continuation, not a carousel.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** lead major statements and project titles with Instrument Serif, then use DM Sans for the supporting information around them.
-- **Do** create hierarchy through varied tile proportions, paper space, and tonal fields before adding borders or effects.
-- **Do** give each project or editorial idea one clear pastel or paper tile field.
-- **Do** preserve the shared bento corner language and repeated interior gap when extending into case-study routes.
-- **Do** respect reduced-motion preferences by removing transitions and smooth scrolling.
+- **Do** use Space Grotesk for every display, headline, project title, and signature statement.
+- **Do** use Manrope for navigation, metadata, controls, summaries, and case-study prose.
+- **Do** build desktop hierarchy through a variable 12-column composition, 14px gaps, and 16px bento corners.
+- **Do** give each work tile exactly one named field and carry its project theme through card, media placeholder, case hero, and next-project handoff.
+- **Do** keep the homepage hero as an asymmetric paper, ink, and acid three-panel personal poster.
+- **Do** preserve factual content in `src/data/site.json` and `src/data/projects.json`, author long case studies in `src/content/projects/*.md`, and map experience `projectSlugs` to project slugs instead of duplicating link data.
+- **Do** use Lucide React for functional symbols, pair action icons with visible labels, and confine decorative icons to the hero and experience introduction.
+- **Do** use coordinated first-load and in-view Motion transitions only to establish hierarchy, disclose content, or preserve layout continuity.
+- **Do** respect reduced-motion preferences by removing the custom cursor and reducing smooth scrolling, transitions, and animations while leaving all interactions usable.
 
 ### Don't:
 
-- **Don't** turn the portfolio into a dense dashboard, marketing funnel, or uniform card gallery.
-- **Don't** use more than one pastel field within a single bento tile or project card.
-- **Don't** add heavy shadows, gradients, glassmorphism, or decorative motion that competes with the work.
-- **Don't** use Instrument Serif for dense metadata, navigation, tags, or long explanatory paragraphs.
-- **Don't** make hover movement necessary to understand or access content.
+- **Don't** revive the former serif editorial direction or introduce Instrument Serif or DM Sans.
+- **Don't** make the portfolio feel like a generic marketing page, dashboard, or identical-card gallery.
+- **Don't** add gradients, glass effects, heavy borders, or permanent floating shadows.
+- **Don't** make hover movement necessary for meaning, navigation, or access.
+- **Don't** use the custom cursor on touch, coarse-pointer, or reduced-motion contexts, or rely on cursor labels as instructions.
+- **Don't** introduce a second icon family, use icons as unlabelled controls, or turn Lucide symbols into repeated decoration.
+- **Don't** hard-code experience awards, case-study titles, or related-work routes in components.
+- **Don't** turn abstract project placeholders into decorative clutter; they should remain simple interface artifacts.
+- **Don't** embed portfolio facts or case-study prose directly in React components.
+- **Don't** use em dash characters in website content.

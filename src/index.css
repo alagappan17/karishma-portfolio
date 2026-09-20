@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  color: #152a40;
-  background: #f7f5f0;
-  font-family: 'DM Sans', Arial, sans-serif;
+  color: #141511;
+  background: #f2f0eb;
+  font-family: 'Manrope', Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -12,10 +12,10 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: #f7f5f0; }
+body { margin: 0; min-width: 320px; background: #f2f0eb; }
 button, a { font: inherit; }
 a { color: inherit; }
-::selection { background: #263cce; color: #fff; }
+::selection { background: #5546d8; color: #fff; }
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #f7f5f0; }
-::-webkit-scrollbar-thumb { background: #bfcae8; border: 3px solid #f7f5f0; border-radius: 10px; }
+::-webkit-scrollbar-track { background: #f2f0eb; }
+::-webkit-scrollbar-thumb { background: #d8d0fb; border: 3px solid #f2f0eb; border-radius: 10px; }

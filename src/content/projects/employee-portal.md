@@ -1,0 +1,37 @@
+## Overview
+
+An internal global portal for more than 20,000 employees across regions and functions. The redesign shifted a cluttered destination into a task-oriented workspace for resources, support, training, calendar activity, and community updates.
+
+## The challenge
+
+- Important everyday resources were difficult to find.
+- Content lacked relevance across regions and employee needs.
+- Interactions and feedback states were inconsistent.
+
+## Design goals
+
+- Bring high-priority employee actions into a modular dashboard.
+- Personalize content by region, time zone, and engagement.
+- Make discovery and status feedback clearer.
+
+## My role
+
+- Restructured flows for training, helpdesk, and calendar tasks.
+- Created prototypes and defined modular widget behavior.
+- Partnered through handoff and design QA.
+
+## Key screens and features
+
+![Employee portal dashboard](placeholder:portal)
+
+- Modular dashboard for tasks, updates, and resources.
+- Tickets, training progress, calendar, communities, and applications.
+- Progressive disclosure for a calmer first view.
+
+## Outcomes
+
+The redesigned experience improved hierarchy, discoverability, and task focus across everyday employee workflows.
+
+## Key learnings
+
+Reducing visual clutter made repeat tasks easier. Purposeful micro-interactions made deadlines and status changes more visible.
