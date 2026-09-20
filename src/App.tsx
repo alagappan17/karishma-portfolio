@@ -633,15 +633,84 @@ function Contact() {
   </SectionReveal>
 }
 
+const getAppRoute = () => {
+  const fullPath = typeof window !== 'undefined' ? window.location.pathname : '/'
+  const stripped = (fullPath.startsWith(appBase) ? fullPath.slice(appBase.length) : fullPath).replace(/\/+$/, '')
+  return stripped || '/'
+}
+
 function App() {
-  const path = (window.location.pathname.startsWith(appBase) ? window.location.pathname.slice(appBase.length) : window.location.pathname).replace(/\/+$/, '') || '/'; const slug = path.startsWith('/work/') ? path.split('/')[2] : undefined; const project = slug ? projects.find((item) => item.slug === slug) : undefined
+  const [path, setPath] = useState(getAppRoute)
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setPath(getAppRoute())
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
+
+      const anchor = (e.target as HTMLElement)?.closest('a')
+      if (!anchor) return
+
+      const href = anchor.getAttribute('href')
+      if (!href) return
+
+      if (anchor.target === '_blank' || href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:')) return
+
+      const url = new URL(anchor.href, window.location.origin)
+      if (url.origin !== window.location.origin) return
+
+      if (url.pathname === window.location.pathname && url.hash) {
+        e.preventDefault()
+        const targetId = url.hash.slice(1)
+        window.history.pushState(null, '', url.href)
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+
+      if (url.pathname.startsWith(appBase) || url.pathname.startsWith('/')) {
+        e.preventDefault()
+        window.history.pushState(null, '', url.href)
+        setPath(getAppRoute())
+        if (url.hash) {
+          const targetId = url.hash.slice(1)
+          window.requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' }))
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+      }
+    }
+
+    document.addEventListener('click', handleClick)
+    return () => document.removeEventListener('click', handleClick)
+  }, [])
+
   useEffect(() => {
     if (!window.location.hash) return
     const targetId = window.location.hash.slice(1)
     const frame = window.requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView())
     return () => window.cancelAnimationFrame(frame)
-  }, [])
-  return <MotionConfig reducedMotion="user"><main className="portfolio-shell"><Cursor /><Header />{project ? <CaseStudy project={project} /> : path === '/work' ? <WorkArchive /> : <HomePage />}<Contact /></main></MotionConfig>
+  }, [path])
+
+  const slug = path.startsWith('/work/') ? path.split('/')[2] : undefined
+  const project = slug ? projects.find((item) => item.slug === slug) : undefined
+
+  return (
+    <MotionConfig reducedMotion="user">
+      <main className="portfolio-shell">
+        <Cursor />
+        <Header />
+        {project ? <CaseStudy project={project} /> : path === '/work' ? <WorkArchive /> : <HomePage />}
+        <Contact />
+      </main>
+    </MotionConfig>
+  )
 }
 
 export default App
+
