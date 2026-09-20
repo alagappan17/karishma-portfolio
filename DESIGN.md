@@ -140,7 +140,7 @@ The palette uses quiet neutrals as the gallery wall and saturated light fields a
 
 ## Layout
 
-The desktop shell is capped at 1440px with a 28px outer gutter. A 14px gap is the recurring internal rhythm. The header is an even three-part line: mark at left, navigation in the center, and location at right.
+The desktop shell defaults to 1440px with a 28px outer gutter for standard laptops (such as MacBook Air). On larger desktop screens (1536px+), it expands to 1680px with proportional typography and card heights. On 27-inch monitors and 4K displays (1920px–2560px+), the shell expands to up to 2140px–2240px with 60px–70px gutters, scaled display typography (Space Grotesk up to 7.5rem–8rem), golden aspect ratio card heights, an editorial 72ch reading measure for case studies, and centered decorative thread stages. A 14px to 18px gap is the recurring internal rhythm. The header is an even three-part line: mark at left, navigation in the center, and location at right.
 
 The homepage hero is an asymmetric three-panel composition. A large paper introduction column carries the headline; a narrow ink personal-poster panel uses the monogram, orbital circles, and small acid and peach markers; an acid statement panel carries the point of view and conversation action. This is composition and identity, not a generic landing-page banner.
 
