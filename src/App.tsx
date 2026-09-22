@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, MotionConfig, motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from 'motion/react'
-import { ArrowUpRight, Award, BriefcaseBusiness, ChevronDown, Circle, Diamond, ExternalLink, Hexagon, Mail, MousePointer2, Pen, PenTool, Pointer, Sparkles, Square, Star, Triangle, Trophy } from 'lucide-react'
+import { ArrowUpRight, Award, BriefcaseBusiness, ChevronDown, Circle, Diamond, ExternalLink, Hexagon, House, Mail, MousePointer2, Pen, PenTool, Pointer, Sparkles, Square, Star, Triangle, Trophy } from 'lucide-react'
 import archiveContent from './data/workArchive.json'
 import caseStudyContent from './data/caseStudySettings.json'
 import contactContent from './data/contact.json'
 import homeContent from './data/homePage.json'
 import navigationContent from './data/navigation.json'
+import notFoundContent from './data/notFound.json'
 import { caseStudyContentBySlug, projects } from './content/projects'
 import experienceContent from './data/experience.json'
 import lifestyleContent from './data/personalGallery.json'
@@ -30,6 +31,7 @@ const lifestyle = lifestyleContent as LifestyleContent
 const galleryItems = lifestyle.items
 const home = homeContent
 const navigation = navigationContent
+const notFound = notFoundContent
 const archive = archiveContent
 const caseStudySettings = caseStudyContent
 const contact = contactContent
@@ -451,6 +453,26 @@ function WorkArchive() {
   </SectionReveal>
 }
 
+function NotFoundPage() {
+  return <motion.section className="not-found-page" aria-labelledby="not-found-heading" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11, delayChildren: 0.06 } } }}>
+    <motion.div className="not-found-page__copy" variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: motionEase } } }}>
+      <div>
+        <h1 id="not-found-heading">{notFound.heading}</h1>
+        <p>{notFound.body}</p>
+        <a className="button button--ink" href={appPath()} data-cursor-label={notFound.actionLabel}>{notFound.actionLabel}<House aria-hidden="true" /></a>
+      </div>
+    </motion.div>
+    <motion.div className="not-found-page__poster" aria-hidden="true" variants={{ hidden: { opacity: 0, scale: 0.94, rotate: -2 }, visible: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.7, ease: motionEase } } }}>
+      <span className="not-found-page__orbit not-found-page__orbit--one" />
+      <span className="not-found-page__orbit not-found-page__orbit--two" />
+      <span className="not-found-page__tile">404</span>
+      <Pointer className="not-found-page__pointer" />
+      <Sparkles className="not-found-page__spark" />
+      <i />
+    </motion.div>
+  </motion.section>
+}
+
 function MarkdownContent({ markdown, project }: { markdown: string; project: ProjectRecord }) {
   const sections: { title?: string; nodes: ReactNode[] }[] = []
   const lines = markdown.trim().split('\n')
@@ -710,14 +732,15 @@ function App() {
 
   const slug = path.startsWith('/work/') ? path.split('/')[2] : undefined
   const project = slug ? projects.find((item) => item.slug === slug) : undefined
+  const isNotFound = !project && path !== '/' && path !== '/work'
 
   return (
     <MotionConfig reducedMotion="user">
       <main className="portfolio-shell">
         <Cursor />
         <Header />
-        {project ? <CaseStudy project={project} /> : path === '/work' ? <WorkArchive /> : <HomePage />}
-        <Contact />
+        {project ? <CaseStudy project={project} /> : path === '/work' ? <WorkArchive /> : isNotFound ? <NotFoundPage /> : <HomePage />}
+        {!isNotFound && <Contact />}
       </main>
     </MotionConfig>
   )

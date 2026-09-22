@@ -442,6 +442,26 @@ content:
         label: Contact link destination
         type: string
         required: true
+  - name: not-found
+    label: 404 Page
+    type: file
+    path: src/data/notFound.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+        required: true
+      - name: body
+        label: Message
+        type: text
+        required: true
+      - name: actionLabel
+        label: Home button label
+        type: string
+        required: true
   - name: work-archive
     label: Work Archive
     type: file
