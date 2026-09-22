@@ -323,3 +323,91 @@ content:
         label: Behance link
         type: string
         required: true
+  - name: experience
+    label: Experience
+    type: file
+    path: src/data/experience.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: heading
+        label: Section heading
+        type: string
+        required: true
+      - name: body
+        label: Introductory text
+        type: text
+        required: true
+      - name: expandLabel
+        label: Expand action label
+        type: string
+        required: true
+      - name: collapseLabel
+        label: Collapse action label
+        type: string
+        required: true
+      - name: projectLabel
+        label: Related work label
+        type: string
+        required: true
+      - name: awardLabel
+        label: Recognition label
+        type: string
+        required: true
+      - name: items
+        label: Experience entries
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{company} ({period})"
+        description: Add, remove, or reorder roles. Expanded details on the website scroll when they exceed the available space.
+        fields:
+          - name: period
+            label: Time period
+            type: string
+            required: true
+          - name: company
+            label: Company or chapter
+            type: string
+            required: true
+          - name: role
+            label: Role
+            type: string
+            required: true
+          - name: duration
+            label: Duration
+            type: string
+            required: true
+          - name: highlighted
+            label: Highlight this entry
+            type: boolean
+            description: Adds the subtle accent used for the primary experience entry.
+          - name: summary
+            label: Summary
+            type: text
+            required: true
+          - name: details
+            label: Responsibilities and outcomes
+            type: text
+            list: true
+            required: true
+          - name: tags
+            label: Skills and focus areas
+            type: string
+            list: true
+            required: true
+          - name: awards
+            label: Recognition
+            type: string
+            list: true
+          - name: projectSlugs
+            label: Related case studies
+            type: reference
+            options:
+              collection: case-studies
+              multiple: true
+              value: "{slug}"
+              label: "{title}"

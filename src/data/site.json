@@ -35,52 +35,6 @@
       { "title": "Make the details carry meaning", "description": "Use hierarchy, language, and interaction to turn a good direction into a dependable experience." }
     ]
   },
-  "experience": {
-    "heading": "Fifteen years of making invisible work visible.",
-    "body": "Choose a chapter to see the questions, collaborations, and bodies of work that shaped it.",
-    "expandLabel": "Open this chapter",
-    "collapseLabel": "Close this chapter",
-    "projectLabel": "Work from this chapter",
-    "awardLabel": "Recognition",
-    "items": [
-      {
-        "period": "2021 to present",
-        "company": "HashedIn by Deloitte",
-        "role": "UI Lead, Product Design",
-        "duration": "5+ years",
-        "highlighted": true,
-        "summary": "Shaping enterprise AI work into explainable interfaces that let people guide, inspect, and trust the system.",
-        "details": ["Architected agentic AI experiences across sourcing, contracts, category, and autonomous purchase-order workflows.", "Led 0 to 1 design for AI marketing and generative content products with product managers and AI engineers.", "Standardized component specifications, handoff guidelines, and design QA workflows, reducing frontend rework by 75 to 85 percent.", "Mentored designers and cohorts on design thinking, Figma practice, and AI-accelerated workflows."],
-        "tags": ["Enterprise AI", "Agentic UX", "Design systems", "Leadership"],
-        "awards": ["POD Award Apr 2023", "Excellence Award Feb 2024", "Excellence Award Oct 2024", "Torch Bearer Sep 2025", "Excellence Award Jul 2026", "High-Five Award Aug 2026"],
-        "projectSlugs": ["zora-ai", "contracts-navigator", "ai-marketing-hub", "vanguard-portal", "ai-video-generation"]
-      },
-      {
-        "period": "2018 to 2021",
-        "company": "PwC",
-        "role": "Senior UX/UI Designer",
-        "duration": "3 years",
-        "highlighted": false,
-        "summary": "Turned research, client context, and complex requirements into clear product direction teams could build from.",
-        "details": ["Led user research, customer journey mapping, and interface design for enterprise digital solutions.", "Translated interviews, usability testing, and heuristic evaluations into data-backed design recommendations.", "Built structured component libraries and supported high-fidelity agile releases."],
-        "tags": ["UX research", "Service design", "Enterprise platforms"],
-        "awards": [],
-        "projectSlugs": []
-      },
-      {
-        "period": "2011 to 2018",
-        "company": "Technology and product companies",
-        "role": "Senior Visual and Product Designer",
-        "duration": "7 years",
-        "highlighted": false,
-        "summary": "Built a visual and interaction foundation across e-commerce and consumer software, where first impressions had to do real work.",
-        "details": ["Designed end-to-end web and mobile interfaces, responsive applications, and visual brand assets.", "Improved onboarding and checkout journeys through wireframing, interactive prototyping, and team alignment."],
-        "tags": ["Product design", "Responsive web", "Brand systems"],
-        "awards": [],
-        "projectSlugs": []
-      }
-    ]
-  },
   "archive": { "heading": "The work, up close.", "body": "A collection of product stories across AI, enterprise software, and the tools that keep work moving.", "supportingText": "Each project brings the process, product, and people into focus.", "filterLabel": "Browse by focus", "allLabel": "All work", "controlsBody": "Pick a project to see how it came together." },
   "caseStudy": { "backLabel": "Back to all work", "metadataLabel": "Project details", "nextLabel": "Continue to the next study", "imagePlaceholderLabel": "Illustrative project artifact", "roleLabel": "Contribution", "industryLabel": "Context", "durationLabel": "Timeframe", "platformLabel": "Surface", "toolsLabel": "Working tools" },
   "footer": { "label": "Selected work by Karishma Sharma", "year": "2026" }

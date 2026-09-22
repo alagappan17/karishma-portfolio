@@ -3,6 +3,7 @@ import { AnimatePresence, MotionConfig, motion, useMotionValue, useReducedMotion
 import { ArrowUpRight, Award, BriefcaseBusiness, ChevronDown, Circle, Diamond, ExternalLink, Hexagon, Mail, MousePointer2, Pen, PenTool, Pointer, Sparkles, Square, Star, Triangle, Trophy } from 'lucide-react'
 import site from './data/site.json'
 import { caseStudyContentBySlug, projects } from './content/projects'
+import experienceContent from './data/experience.json'
 import lifestyleContent from './data/personalGallery.json'
 import personalInformationContent from './data/personalInformation.json'
 import type { ProjectRecord } from './types/portfolio'
@@ -38,6 +39,7 @@ type PersonalInformation = {
   behance: string
 }
 const personalInformation = personalInformationContent as PersonalInformation
+const experience = experienceContent
 const personalLinks = [
   { label: 'Email', href: `mailto:${personalInformation.email}` },
   { label: 'LinkedIn', href: personalInformation.linkedIn },
@@ -189,29 +191,19 @@ function SectionReveal({ children, className, id, labelledBy, amount = 0.12 }: {
 }
 
 function ExperienceSection() {
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.matchMedia('(max-width: 620px)').matches : false)
-  const [activeIndex, setActiveIndex] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 620px)').matches ? -1 : 0)
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 620px)')
-    const handler = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches)
-      if (e.matches) setActiveIndex(-1)
-    }
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
+  const [activeIndex, setActiveIndex] = useState(-1)
   const toggleIndex = (index: number) => setActiveIndex((prev) => prev === index ? -1 : index)
-  const activeExperience = activeIndex >= 0 ? site.experience.items[activeIndex] : null
+  const activeExperience = activeIndex >= 0 ? experience.items[activeIndex] : null
   const caseStudies = activeExperience ? activeExperience.projectSlugs.map((slug) => projects.find((project) => project.slug === slug)).filter((project): project is ProjectRecord => Boolean(project)) : []
   return <SectionReveal className="experience-section" id="experience" labelledBy="experience-heading">
-    <motion.div className="experience-section__intro" variants={sectionHeaderVariants}><BriefcaseBusiness aria-hidden="true" /><h2 id="experience-heading">{site.experience.heading}</h2><p>{site.experience.body}</p><span className="experience-section__line" aria-hidden="true"><PenTool /><Sparkles /></span></motion.div>
-    <motion.div className="experience-timeline" variants={staggerGridVariants}>{site.experience.items.map((item, index) => {
+    <motion.div className="experience-section__intro" variants={sectionHeaderVariants}><BriefcaseBusiness aria-hidden="true" /><h2 id="experience-heading">{experience.heading}</h2><p>{experience.body}</p><span className="experience-section__line" aria-hidden="true"><PenTool /><Sparkles /></span></motion.div>
+    <motion.div className="experience-timeline" variants={staggerGridVariants}>{experience.items.map((item, index) => {
       const isActive = activeIndex === index
-      return <motion.article key={item.company} variants={listItemVariants} className={`experience-entry ${isActive ? 'is-active' : ''} ${item.highlighted ? 'is-highlighted' : ''}`} onMouseEnter={() => !isMobile && setActiveIndex(index)} onFocus={() => !isMobile && setActiveIndex(index)}>
-        <button type="button" onClick={() => isMobile ? toggleIndex(index) : setActiveIndex(index)} aria-expanded={isActive} className="experience-entry__trigger" data-cursor-label={isActive ? 'Active' : 'Explore'}>
+      return <motion.article key={`${item.company}-${item.period}`} variants={listItemVariants} className={`experience-entry ${isActive ? 'is-active' : ''} ${item.highlighted ? 'is-highlighted' : ''}`}>
+        <button type="button" onClick={() => toggleIndex(index)} aria-expanded={isActive} aria-label={isActive ? experience.collapseLabel : experience.expandLabel} className="experience-entry__trigger" data-cursor-label={isActive ? experience.collapseLabel : experience.expandLabel}>
           <span className="experience-entry__title"><small className="experience-entry__period">{item.period}</small><strong>{item.company}</strong><small>{item.role} · {item.duration}</small></span><ChevronDown className="experience-entry__chevron" aria-hidden="true" />
         </button>
-        <AnimatePresence initial={false}>{isActive && <motion.div className="experience-entry__details" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: motionEase }}><div className="experience-entry__details-inner"><p className="experience-entry__summary">{item.summary}</p><ul>{item.details.map((detail) => <li key={detail}>{detail}</li>)}</ul><div className="experience-tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{item.awards.length > 0 && <div className="experience-awards"><span><Trophy aria-hidden="true" />{site.experience.awardLabel}</span><div>{item.awards.map((award) => <mark key={award}><Award aria-hidden="true" />{award}</mark>)}</div></div>}{caseStudies.length > 0 && <div className="experience-projects"><span><Star aria-hidden="true" />{site.experience.projectLabel}</span><div>{caseStudies.map((project) => <a href={appPath(`/work/${project.slug}`)} key={project.slug} data-cursor-label="Open case study">{project.shortTitle}<ExternalLink aria-hidden="true" /></a>)}</div></div>}</div></motion.div>}</AnimatePresence>
+        <AnimatePresence initial={false}>{isActive && <motion.div className="experience-entry__details" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: motionEase }}><div className="experience-entry__details-scroll" role="region" aria-label={`${item.company} experience details`} tabIndex={0}><div className="experience-entry__details-inner"><p className="experience-entry__summary">{item.summary}</p><ul>{item.details.map((detail) => <li key={detail}>{detail}</li>)}</ul><div className="experience-tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{item.awards.length > 0 && <div className="experience-awards"><span><Trophy aria-hidden="true" />{experience.awardLabel}</span><div>{item.awards.map((award) => <mark key={award}><Award aria-hidden="true" />{award}</mark>)}</div></div>}{caseStudies.length > 0 && <div className="experience-projects"><span><Star aria-hidden="true" />{experience.projectLabel}</span><div>{caseStudies.map((project) => <a href={appPath(`/work/${project.slug}`)} key={project.slug} data-cursor-label="Open case study">{project.shortTitle}<ExternalLink aria-hidden="true" /></a>)}</div></div>}</div></div></motion.div>}</AnimatePresence>
       </motion.article>
     })}</motion.div>
   </SectionReveal>
