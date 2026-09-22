@@ -1,3 +1,26 @@
+---
+{
+  "slug": "financial-close",
+  "order": 3,
+  "title": "Digitizing the Financial Close Process",
+  "shortTitle": "Financial Close",
+  "category": "FinOps",
+  "industry": "Finance",
+  "role": "Solo UX Designer",
+  "duration": "2 to 3 months",
+  "platform": "Internal partner portal",
+  "tools": ["Figma", "Jira"],
+  "summary": "Turned a spreadsheet ritual into a shared close process people could follow and trust.",
+  "tags": ["Enterprise", "Workflow", "Dashboard"],
+  "theme": "paper",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "Illustrative finance workflow placeholder",
+  "coverCaption": "",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 A finance operations workspace that replaced spreadsheet and email coordination with shared visibility into monthly and quarterly close activities.
@@ -21,8 +44,6 @@ A finance operations workspace that replaced spreadsheet and email coordination 
 - Validated concepts through stakeholder reviews.
 
 ## Key screens and features
-
-![Financial close workspace](placeholder:close)
 
 - Close calendar and entity progress tracking.
 - Task detail with ownership, status, due date, and escalation actions.

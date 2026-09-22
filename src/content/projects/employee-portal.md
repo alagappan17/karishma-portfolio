@@ -1,3 +1,26 @@
+---
+{
+  "slug": "employee-portal",
+  "order": 1,
+  "title": "Global Employee Portal Redesign",
+  "shortTitle": "Employee Portal",
+  "category": "Internal tools",
+  "industry": "Telecom",
+  "role": "UX Designer",
+  "duration": "6 months",
+  "platform": "Internal web portal",
+  "tools": ["Figma", "Jira", "Confluence"],
+  "summary": "Reframed a 20,000-person portal around the moments employees actually needed to complete.",
+  "tags": ["Enterprise", "Dashboard", "Personalization"],
+  "theme": "blue",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "Illustrative employee portal dashboard placeholder",
+  "coverCaption": "",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 An internal global portal for more than 20,000 employees across regions and functions. The redesign shifted a cluttered destination into a task-oriented workspace for resources, support, training, calendar activity, and community updates.
@@ -21,8 +44,6 @@ An internal global portal for more than 20,000 employees across regions and func
 - Partnered through handoff and design QA.
 
 ## Key screens and features
-
-![Employee portal dashboard](placeholder:portal)
 
 - Modular dashboard for tasks, updates, and resources.
 - Tickets, training progress, calendar, communities, and applications.

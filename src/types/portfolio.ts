@@ -20,6 +20,7 @@ export interface ProjectRecord {
   tags: string[]
   theme: ProjectTheme
   featured: boolean
+  homeOrder?: number
   image: ProjectImage
   caseImages?: ProjectImage[]
 }

@@ -213,7 +213,7 @@ Borders are purposeful and spare: a faint ink hairline separates mockup frames, 
 - **Character:** an ink-on-dark chronology that turns resume facts into a focused, accessible exploration surface.
 - **Interaction:** hovering, focusing, or clicking an experience entry activates it. The active entry receives a subtle light field, its chevron rotates, and its details animate open or closed through `AnimatePresence` in 280ms. The button exposes its state through `aria-expanded`.
 - **Content:** each active entry may show its summary, detail list, tags, recognition, and related case-study links. Deloitte recognition is shown as compact lilac award marks. Related links use the selected project records, not duplicated titles.
-- **Data rule:** `src/data/site.json` owns the experience items, labels, awards, and `projectSlugs`. Each slug maps to `src/data/projects.json` by `project.slug`, then routes to `/work/:slug`.
+- **Data rule:** `src/data/site.json` owns the experience items, labels, awards, and `projectSlugs`. Each slug maps to the matching self-contained record in `src/content/projects/`, then routes to `/work/:slug`.
 
 ### Contextual Cursor and Icons
 
@@ -238,7 +238,7 @@ Borders are purposeful and spare: a faint ink hairline separates mockup frames, 
 - **Do** build desktop hierarchy through a variable 12-column composition, 14px gaps, and 16px bento corners.
 - **Do** give each work tile exactly one named field and carry its project theme through card, media placeholder, case hero, and next-project handoff.
 - **Do** keep the homepage hero as an asymmetric paper, ink, and acid three-panel personal poster.
-- **Do** preserve factual content in `src/data/site.json` and `src/data/projects.json`, author long case studies in `src/content/projects/*.md`, and map experience `projectSlugs` to project slugs instead of duplicating link data.
+- **Do** preserve factual content in `src/data/site.json`, keep each project’s facts and long case study together in `src/content/projects/*.md`, and map experience `projectSlugs` to project slugs instead of duplicating link data.
 - **Do** use Lucide React for functional symbols, pair action icons with visible labels, and confine decorative icons to the hero and experience introduction.
 - **Do** use coordinated first-load and in-view Motion transitions only to establish hierarchy, disclose content, or preserve layout continuity.
 - **Do** respect reduced-motion preferences by removing the custom cursor and reducing smooth scrolling, transitions, and animations while leaving all interactions usable.

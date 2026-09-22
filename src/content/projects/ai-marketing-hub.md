@@ -1,3 +1,26 @@
+---
+{
+  "slug": "ai-marketing-hub",
+  "order": 8,
+  "title": "AI Marketing Hub",
+  "shortTitle": "AI Marketing Hub",
+  "category": "AI and MarTech",
+  "industry": "Marketing",
+  "role": "UX Designer",
+  "duration": "",
+  "platform": "Internal marketing web application",
+  "tools": [],
+  "summary": "Gave campaign teams a clear way to direct specialist AI agents without losing their own point of view.",
+  "tags": ["AI", "Dashboard", "Onboarding"],
+  "theme": "butter",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "Illustrative marketing agent placeholder",
+  "coverCaption": "",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 A centralized hub of specialized AI agents that helps marketing teams plan campaigns, understand performance, and receive useful insight through familiar collaboration tools.
@@ -21,8 +44,6 @@ A centralized hub of specialized AI agents that helps marketing teams plan campa
 - Defined empty and first-use states for evolving AI capabilities.
 
 ## Key screens and features
-
-![Marketing agent hub](placeholder:campaign)
 
 - Digital Brief Agent for structured campaign inputs.
 - Campaign Insight Agent with trends, warnings, and next actions.

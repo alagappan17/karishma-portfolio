@@ -1,0 +1,165 @@
+media:
+  - name: project-images
+    label: Project images
+    input: public/media/projects
+    output: /media/projects
+    categories: [image]
+    extensions: [png, jpg, jpeg, webp, gif]
+    rename: safe
+
+settings:
+  commit:
+    templates:
+      create: "content(case-study): add {filename}"
+      update: "content(case-study): update {filename}"
+      delete: "content(case-study): remove {filename}"
+
+content:
+  - name: case-studies
+    label: Case studies
+    type: collection
+    path: src/content/projects
+    format: json-frontmatter
+    operations:
+      create: true
+      delete: true
+      rename: true
+    filename:
+      template: "{slug}.md"
+      field: create
+    view:
+      primary: title
+      fields: [shortTitle, category, featured, order]
+      search: [title, shortTitle, category, industry, tags]
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Project title
+        type: string
+        required: true
+      - name: shortTitle
+        label: Short title
+        type: string
+        required: true
+        description: Used on project cards and links.
+      - name: slug
+        label: URL slug
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9-]+$"
+          message: Use lowercase letters, numbers, and hyphens only.
+        description: Changing this changes the case-study URL.
+      - name: order
+        label: Display order
+        type: number
+        required: true
+        description: Lower numbers appear first and control the Next project link.
+      - name: featured
+        label: Show on home page
+        type: boolean
+        description: Turn on to show this case study in the selected-work section on the home page.
+      - name: homeOrder
+        label: Home page order
+        type: number
+        description: Optional. Lower numbers appear first on the home page. Use only when this project is shown there.
+      - name: category
+        label: Focus / category
+        type: string
+        required: true
+      - name: industry
+        label: Industry
+        type: string
+        required: true
+      - name: role
+        label: Role
+        type: string
+      - name: duration
+        label: Duration
+        type: string
+      - name: platform
+        label: Platform
+        type: string
+        required: true
+      - name: summary
+        label: Card and case-study summary
+        type: text
+        required: true
+      - name: tools
+        label: Tools
+        type: string
+        list: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        required: true
+      - name: theme
+        label: Colour theme
+        type: select
+        required: true
+        options:
+          - label: Blue
+            value: blue
+          - label: Butter
+            value: butter
+          - label: Ink
+            value: ink
+          - label: Lilac
+            value: lilac
+          - label: Paper
+            value: paper
+      - name: cover
+        label: Cover image
+        type: image
+        options:
+          media: project-images
+          path: public/media/projects
+          extensions: [png, jpg, jpeg, webp, gif]
+          rename: safe
+        description: Upload or select the main project image. Leave blank to use the built-in placeholder.
+      - name: coverAlt
+        label: Cover image description
+        type: string
+        description: Describe the image for visitors using screen readers.
+      - name: coverCaption
+        label: Cover image caption
+        type: string
+      - name: caseImages
+        label: Supporting images
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields:
+          - name: src
+            label: Image
+            type: image
+            required: true
+            options:
+              media: project-images
+              path: public/media/projects
+              extensions: [png, jpg, jpeg, webp, gif]
+              rename: safe
+          - name: alt
+            label: Image description
+            type: string
+            required: true
+          - name: caption
+            label: Caption
+            type: string
+      - name: body
+        label: Case-study story
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: project-images
+          path: public/media/projects
+          extensions: [png, jpg, jpeg, webp, gif]
+          rename: safe
+          switcher: true

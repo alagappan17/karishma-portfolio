@@ -2,14 +2,8 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, MotionConfig, motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from 'motion/react'
 import { ArrowUpRight, Award, BriefcaseBusiness, ChevronDown, Circle, Diamond, ExternalLink, Hexagon, Mail, MousePointer2, Pen, PenTool, Pointer, Sparkles, Square, Star, Triangle, Trophy } from 'lucide-react'
 import site from './data/site.json'
-import projectData from './data/projects.json'
+import { caseStudyContentBySlug, projects } from './content/projects'
 import personalGallery from './data/personalGallery.json'
-import aiAssistImage from './assets/projects/ai-assist-interface.png'
-import contractsNavigatorImage from './assets/projects/contracts-navigator-interface.png'
-import procurementIntelligenceImage from './assets/projects/procurement-intelligence-interface.png'
-import smartMarineImage from './assets/projects/smart-marine-interface.png'
-import smartManufacturingImage from './assets/projects/smart-manufacturing-interface.png'
-import zoraAiImage from './assets/projects/zora-ai-interface.png'
 import heroProfileImage from './assets/hero-profile.png'
 import type { ProjectRecord } from './types/portfolio'
 import './Portfolio.css'
@@ -24,8 +18,6 @@ type GalleryItem = {
   theme: 'acid' | 'peach' | 'blue' | 'lilac' | 'paper' | 'signal'
 }
 const galleryItems = personalGallery as GalleryItem[]
-const projects = projectData as ProjectRecord[]
-const contentFiles = import.meta.glob('./content/projects/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
 const motionEase = [0.16, 1, 0.3, 1] as const
 
 const sectionVariants = {
@@ -90,7 +82,6 @@ const galleryCardVariants = {
     transition: { duration: 0.55, ease: motionEase },
   },
 }
-const projectImages: Record<string, string> = { 'zora-ai': zoraAiImage, 'contracts-navigator': contractsNavigatorImage, 'smart-marine': smartMarineImage, 'ai-assist': aiAssistImage, 'smart-manufacturing': smartManufacturingImage, 'procurement-intelligence': procurementIntelligenceImage }
 const appBase = import.meta.env.BASE_URL.replace(/\/$/, '')
 const appPath = (path = '/') => `${appBase}${path.startsWith('/') ? path : `/${path}`}`
 type IntroHighlight = 'blue' | 'lilac' | 'acid'
@@ -100,11 +91,7 @@ const introAnimationStart = 0.18
 const introAnimationEnd = 0.94
 
 function getCaseImages(project: ProjectRecord) {
-  return project.caseImages?.length ? project.caseImages : [
-    project.image,
-    { alt: `${project.shortTitle} workflow view`, src: `placeholder:${project.slug}-workflow`, caption: 'Supporting workflow view' },
-    { alt: `${project.shortTitle} decision detail`, src: `placeholder:${project.slug}-detail`, caption: 'Supporting decision detail' },
-  ]
+  return [project.image, ...(project.caseImages || [])]
 }
 
 function Cursor() {
@@ -138,10 +125,9 @@ function Placeholder({ project, image = project.image, compact = false, variant 
 }
 
 function ProjectArtifact({ project, image = project.image, compact = false, variant = 0, className = '' }: { project: ProjectRecord; image?: ProjectRecord['image']; compact?: boolean; variant?: number; className?: string }) {
-  const assetKey = image.src.startsWith('asset:') ? image.src.slice('asset:'.length) : undefined
-  const asset = assetKey ? projectImages[assetKey] : undefined
-  if (!asset) return <Placeholder project={project} image={image} compact={compact} variant={variant} className={className} />
-  return <figure className={`project-artifact project-artifact--${project.theme} ${compact ? 'project-artifact--compact' : ''} ${className}`}><img src={asset} alt={image.alt} /></figure>
+  if (image.src.startsWith('placeholder:')) return <Placeholder project={project} image={image} compact={compact} variant={variant} className={className} />
+  const src = image.src.startsWith('/') ? appPath(image.src) : image.src
+  return <figure className={`project-artifact project-artifact--${project.theme} ${compact ? 'project-artifact--compact' : ''} ${className}`}><img src={src} alt={image.alt} /></figure>
 }
 
 function MarkdownImage({ line, project, imageIndex }: { line: string; project: ProjectRecord; imageIndex: number }) {
@@ -154,7 +140,8 @@ function MarkdownImage({ line, project, imageIndex }: { line: string; project: P
   if (selectedImage.src.startsWith('asset:') || selectedImage.src.startsWith('placeholder:')) {
     return <figure className="case-visual"><ProjectArtifact project={project} image={selectedImage} variant={imageIndex + 1} className="case-visual__artifact" /><figcaption>{selectedImage.caption ?? selectedImage.alt}</figcaption></figure>
   }
-  return <figure className="case-visual"><img src={selectedImage.src} alt={selectedImage.alt} /><figcaption>{selectedImage.caption ?? selectedImage.alt}</figcaption></figure>
+  const src = selectedImage.src.startsWith('/') ? appPath(selectedImage.src) : selectedImage.src
+  return <figure className="case-visual"><img src={src} alt={selectedImage.alt} /><figcaption>{selectedImage.caption ?? selectedImage.alt}</figcaption></figure>
 }
 
 function Header() {
@@ -395,7 +382,14 @@ function PersonalGallerySection() {
 }
 
 function HomePage() {
-  const selectedWork = site.home.workProjectSlugs.map((slug) => projects.find((project) => project.slug === slug)).filter((project): project is ProjectRecord => Boolean(project))
+  const selectedWork = projects
+    .filter((project) => project.featured)
+    .sort((left, right) => {
+      if (left.homeOrder !== undefined && right.homeOrder !== undefined) return left.homeOrder - right.homeOrder
+      if (left.homeOrder !== undefined) return -1
+      if (right.homeOrder !== undefined) return 1
+      return left.slug.localeCompare(right.slug)
+    })
   return <>
     <motion.section className="showcase-hero" aria-labelledby="home-heading" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11, delayChildren: 0.08 } } }}>
       <motion.div className="showcase-hero__intro" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><span className="showcase-hero__name">{site.brand.name}</span><h1 id="home-heading">{site.home.heading}</h1><div className="showcase-hero__intro-footer"><span>{site.brand.role}</span><a className="inline-link" href={appPath(site.home.secondaryAction.href)} data-cursor-label="Read more">{site.home.secondaryAction.label}<ArrowUpRight /></a></div></motion.div>
@@ -513,7 +507,7 @@ function MarkdownContent({ markdown, project }: { markdown: string; project: Pro
 }
 
 function CaseStudy({ project }: { project: ProjectRecord }) {
-  const content = contentFiles[`./content/projects/${project.slug}.md`] ?? ''
+  const content = caseStudyContentBySlug[project.slug] ?? ''
   const currentIndex = projects.findIndex((item) => item.slug === project.slug)
   const nextProject = projects[(currentIndex + 1) % projects.length]
   const details = [
@@ -546,6 +540,7 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
         variants={{ hidden: { opacity: 0, scale: 0.96, y: 24 }, visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.65, ease: motionEase } } }}
       >
         <ProjectArtifact project={project} image={caseImages[0]} className="case-hero__artifact" />
+        {caseImages[0].caption && <p className="case-hero__caption">{caseImages[0].caption}</p>}
       </motion.div>
     </motion.header>
 
@@ -579,6 +574,7 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
             variants={{ hidden: { opacity: 0, y: 32, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: motionEase } } }}
           >
             <ProjectArtifact project={project} image={image} variant={index + 1} className="case-evidence__artifact" />
+            {image.caption && <p className="case-evidence__caption">{image.caption}</p>}
           </motion.div>
         ))}
       </motion.section>
@@ -714,4 +710,3 @@ function App() {
 }
 
 export default App
-

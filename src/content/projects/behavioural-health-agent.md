@@ -1,3 +1,26 @@
+---
+{
+  "slug": "behavioural-health-agent",
+  "order": 7,
+  "title": "AI Support Agent for Behavioural Health Emergencies",
+  "shortTitle": "Behavioural Health Agent",
+  "category": "Conversational AI",
+  "industry": "Behavioural health",
+  "role": "Sole UX Designer",
+  "duration": "3 months",
+  "platform": "Conversational web application",
+  "tools": ["Figma", "FigJam"],
+  "summary": "Designed a calm path from an urgent conversation to appropriate, real-world support.",
+  "tags": ["AI", "Healthcare", "Accessibility"],
+  "theme": "lilac",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "Illustrative conversational support placeholder",
+  "coverCaption": "",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 An AI-powered conversational experience designed to help people in emotional distress find calm, low-effort guidance and reach verified human support. It was designed as an initial support layer, not a replacement for clinical or emergency care.
@@ -21,8 +44,6 @@ An AI-powered conversational experience designed to help people in emotional dis
 - Created prototypes for usability and scenario testing.
 
 ## Key screens and features
-
-![Conversational support experience](placeholder:conversation)
 
 - Welcome states for talking, breathing support, or therapist discovery.
 - Crisis conversation with free text and simple response options.

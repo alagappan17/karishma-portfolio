@@ -1,3 +1,27 @@
+---
+{
+  "slug": "zora-ai",
+  "order": 10,
+  "title": "Zora AI",
+  "shortTitle": "Zora AI",
+  "category": "Agentic AI",
+  "industry": "Procurement and sourcing",
+  "role": "",
+  "duration": "",
+  "platform": "Enterprise AI and procurement platform",
+  "tools": [],
+  "summary": "Designed a digital workforce people could direct, inspect, and hold accountable across sourcing work.",
+  "tags": ["AI", "Enterprise", "Agentic UX"],
+  "theme": "ink",
+  "featured": true,
+  "homeOrder": 1,
+  "cover": "/media/projects/zora-ai-interface.png",
+  "coverAlt": "Illustrative AI workforce interface",
+  "coverCaption": "A digital workforce built for visibility and control",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 Zora AI is an enterprise digital workforce for sourcing and procurement, pairing autonomous execution with decision-grade intelligence and human-readable recommendations.
@@ -21,8 +45,6 @@ Zora AI is an enterprise digital workforce for sourcing and procurement, pairing
 - Together they connect insight to execution across procurement work.
 
 ## Key screens and features
-
-![Zora AI workforce overview](placeholder:workforce)
 
 - CPO Insights for performance, risk, savings, and opportunity.
 - Advisors for category management, intake, sourcing, and contracts.

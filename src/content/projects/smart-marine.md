@@ -1,3 +1,27 @@
+---
+{
+  "slug": "smart-marine",
+  "order": 2,
+  "title": "Smart Marine",
+  "shortTitle": "Smart Marine",
+  "category": "Supply chain",
+  "industry": "Retail supply chain and logistics",
+  "role": "Solo UX Designer",
+  "duration": "6 months",
+  "platform": "Internal partner portal",
+  "tools": ["Figma", "FigJam", "Jira"],
+  "summary": "Made every handoff in a global shipment visible before it became an exception.",
+  "tags": ["Enterprise", "Data", "B2B"],
+  "theme": "butter",
+  "featured": true,
+  "homeOrder": 3,
+  "cover": "/media/projects/smart-marine-interface.png",
+  "coverAlt": "Illustrative shipment tracking interface",
+  "coverCaption": "A shared view of the shipment network",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 Smart Marine unified container tracking, purchase orders, inventory planning, and shipment documents in a single partner portal for logistics and procurement teams.
@@ -21,8 +45,6 @@ Smart Marine unified container tracking, purchase orders, inventory planning, an
 - Designed wireframes, prototypes, specifications, and responsive behavior.
 
 ## Key screens and features
-
-![Shipment tracking workspace](placeholder:tracking)
 
 - Purchase order management with linked shipment status.
 - Live container tracking with location, ETA, vessel, and delay details.

@@ -24,7 +24,6 @@
     },
     "workHeading": "Selected work, where clarity changes the work itself.",
     "workBody": "A selection of interfaces shaped around real decisions: reviewing agreements, tracing shipments, and directing intelligent systems.",
-    "workProjectSlugs": ["zora-ai", "contracts-navigator", "smart-marine", "ai-assist", "smart-manufacturing", "procurement-intelligence"],
     "moreWorkHeading": "Other studies in systems, services, and emerging tools.",
     "archiveLabel": "Browse all projects",
     "archiveHref": "/work"

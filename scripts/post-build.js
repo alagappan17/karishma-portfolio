@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distDir = path.resolve(__dirname, '../dist')
 const indexPath = path.join(distDir, 'index.html')
-const projectsPath = path.resolve(__dirname, '../src/data/projects.json')
+const caseStudiesDir = path.resolve(__dirname, '../src/content/projects')
 
 if (!fs.existsSync(indexPath)) {
   console.error('dist/index.html does not exist!')
@@ -13,7 +13,14 @@ if (!fs.existsSync(indexPath)) {
 }
 
 const indexContent = fs.readFileSync(indexPath, 'utf-8')
-const projects = JSON.parse(fs.readFileSync(projectsPath, 'utf-8'))
+const projects = fs.readdirSync(caseStudiesDir)
+  .filter((filename) => filename.endsWith('.md'))
+  .map((filename) => {
+    const source = fs.readFileSync(path.join(caseStudiesDir, filename), 'utf-8')
+    const match = source.match(/^---\s*\n([\s\S]*?)\n---/)
+    if (!match) throw new Error(`${filename} needs JSON frontmatter between --- markers.`)
+    return JSON.parse(match[1])
+  })
 
 // 1. Create dist/404.html for SPA fallback
 fs.writeFileSync(path.join(distDir, '404.html'), indexContent)

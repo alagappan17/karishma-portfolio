@@ -1,3 +1,26 @@
+---
+{
+  "slug": "ai-video-generation",
+  "order": 11,
+  "title": "AI-Assisted Video Generation Platform",
+  "shortTitle": "AI Video Generation",
+  "category": "AI and content",
+  "industry": "Healthcare communications",
+  "role": "UX Designer",
+  "duration": "",
+  "platform": "Internal web application",
+  "tools": [],
+  "summary": "Turned a five-step AI video process into a guided creative workflow for healthcare communications.",
+  "tags": ["AI", "Workflow", "Healthcare"],
+  "theme": "lilac",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "Illustrative video workflow placeholder",
+  "coverCaption": "",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 A five-stage AI-assisted content workflow that helped healthcare communication teams move from an idea to an approved, production-ready video while keeping editorial control with people.
@@ -19,8 +42,6 @@ A five-stage AI-assisted content workflow that helped healthcare communication t
 Designed project management, idea input, scene generation, asset setup, storyboarding, approval states, and production status patterns.
 
 ## Key screens and features
-
-![AI video workflow](placeholder:video)
 
 - Project dashboard with search, status, previews, and actions.
 - Guided idea and scene-generation inputs.

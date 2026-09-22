@@ -1,3 +1,27 @@
+---
+{
+  "slug": "ai-assist",
+  "order": 6,
+  "title": "AI Assist",
+  "shortTitle": "AI Assist",
+  "category": "AI and developer tools",
+  "industry": "Software delivery",
+  "role": "UX Designer and Design Lead",
+  "duration": "3 to 4 months",
+  "platform": "Jira-integrated web application",
+  "tools": ["Figma", "FigJam", "Jira", "Confluence"],
+  "summary": "Placed AI inside the delivery flow, with enough context and control for teams to trust it.",
+  "tags": ["AI", "Design leadership", "B2B SaaS"],
+  "theme": "blue",
+  "featured": true,
+  "homeOrder": 4,
+  "cover": "/media/projects/ai-assist-interface.png",
+  "coverAlt": "Illustrative AI-assisted delivery interface",
+  "coverCaption": "AI embedded in the delivery flow",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 AI Assist embedded generative AI into Jira workflows for product owners, architects, QA specialists, UI designers, and administrators while keeping people in control of what gets published.
@@ -21,8 +45,6 @@ AI Assist embedded generative AI into Jira workflows for product owners, archite
 - Established the design system and designed the Admin Portal.
 
 ## Key screens and features
-
-![AI Assist workflow](placeholder:assist)
 
 - A five-step framework from context to review and publishing.
 - Product, architecture, QA, and UI assist modules.

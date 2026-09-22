@@ -1,3 +1,26 @@
+---
+{
+  "slug": "vanguard-portal",
+  "order": 5,
+  "title": "Vanguard Portfolio Portal Component Revamp",
+  "shortTitle": "Portfolio Portal",
+  "category": "Design systems",
+  "industry": "Investment management",
+  "role": "UX Designer",
+  "duration": "",
+  "platform": "Internal portfolio management portal",
+  "tools": ["Figma", "Jira", "FigJam"],
+  "summary": "Rebuilt a shared component language for the people managing investment decisions together.",
+  "tags": ["Design systems", "FinTech", "Enterprise"],
+  "theme": "lilac",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "Illustrative portfolio component placeholder",
+  "coverCaption": "",
+  "caseImages": []
+}
+---
+
 ## Overview
 
 A component modernization initiative for an investment portfolio portal, creating a more consistent experience across multiple personas and workflows.
@@ -21,8 +44,6 @@ A component modernization initiative for an investment portfolio portal, creatin
 - Produced prototypes and partnered through handoff and QA.
 
 ## Key screens and features
-
-![Portfolio component system](placeholder:components)
 
 - Portfolio summaries, tables, filters, alerts, forms, and empty states.
 - Shared patterns adapted for managers, analysts, operations, and leadership.
