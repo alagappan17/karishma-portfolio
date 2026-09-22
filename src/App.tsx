@@ -4,7 +4,7 @@ import { ArrowUpRight, Award, BriefcaseBusiness, ChevronDown, Circle, Diamond, E
 import site from './data/site.json'
 import { caseStudyContentBySlug, projects } from './content/projects'
 import lifestyleContent from './data/personalGallery.json'
-import heroProfileImage from './assets/hero-profile.png'
+import personalInformationContent from './data/personalInformation.json'
 import type { ProjectRecord } from './types/portfolio'
 import './Portfolio.css'
 
@@ -24,6 +24,25 @@ type LifestyleContent = {
 }
 const lifestyle = lifestyleContent as LifestyleContent
 const galleryItems = lifestyle.items
+type PersonalInformation = {
+  name: string
+  monogram: string
+  role: string
+  profileImage: string
+  profileImageAlt: string
+  profileImageLink?: string
+  contactHeading: string
+  contactBody: string
+  email: string
+  linkedIn: string
+  behance: string
+}
+const personalInformation = personalInformationContent as PersonalInformation
+const personalLinks = [
+  { label: 'Email', href: `mailto:${personalInformation.email}` },
+  { label: 'LinkedIn', href: personalInformation.linkedIn },
+  { label: 'Behance', href: personalInformation.behance },
+]
 const motionEase = [0.16, 1, 0.3, 1] as const
 
 const sectionVariants = {
@@ -90,6 +109,7 @@ const galleryCardVariants = {
 }
 const appBase = import.meta.env.BASE_URL.replace(/\/$/, '')
 const appPath = (path = '/') => `${appBase}${path.startsWith('/') ? path : `/${path}`}`
+const contentPath = (path: string) => path.startsWith('/') ? appPath(path) : path
 type IntroHighlight = 'blue' | 'lilac' | 'acid'
 type IntroSegment = { text: string; highlight?: IntroHighlight }
 const introHighlightColors: Record<IntroHighlight, string> = { blue: '#d5e8ff', lilac: '#d8d0fb', acid: '#d7efa0' }
@@ -152,7 +172,7 @@ function MarkdownImage({ line, project, imageIndex }: { line: string; project: P
 
 function Header() {
   return <motion.header className="portfolio-header" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: motionEase }}>
-    <a className="portfolio-mark" href={appPath()} aria-label={site.brand.name} data-cursor-label="Home"><span>{site.brand.monogram}</span><strong>{site.brand.name}</strong></a>
+    <a className="portfolio-mark" href={appPath()} aria-label={personalInformation.name} data-cursor-label="Home"><span>{personalInformation.monogram}</span><strong>{personalInformation.name}</strong></a>
     <nav aria-label="Primary navigation">{site.navigation.map((item) => <a key={item.href} href={appPath(item.href)} data-cursor-label={item.label}>{item.label}</a>)}</nav>
     <a className="portfolio-location" href={appPath('/#contact')} data-cursor-label="Contact">Contact<ArrowUpRight size={14} /></a>
   </motion.header>
@@ -371,7 +391,7 @@ function PersonalGallerySection() {
           data-cursor-label={item.tag}
         >
           <div className="gallery-card__artifact">
-            <img src={item.image} alt={item.imageAlt} loading="lazy" className="gallery-card__img" />
+            <img src={contentPath(item.image)} alt={item.imageAlt} loading="lazy" className="gallery-card__img" />
             <div className="gallery-card__shade" aria-hidden="true" />
           </div>
           <div className="gallery-card__tag-pill">
@@ -399,8 +419,8 @@ function HomePage() {
     .slice(0, 6)
   return <>
     <motion.section className="showcase-hero" aria-labelledby="home-heading" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11, delayChildren: 0.08 } } }}>
-      <motion.div className="showcase-hero__intro" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><span className="showcase-hero__name">{site.brand.name}</span><h1 id="home-heading">{site.home.heading}</h1><div className="showcase-hero__intro-footer"><span>{site.brand.role}</span><a className="inline-link" href={appPath(site.home.secondaryAction.href)} data-cursor-label="Read more">{site.home.secondaryAction.label}<ArrowUpRight /></a></div></motion.div>
-      <motion.div className="showcase-hero__profile" role="img" aria-label={site.home.profileLabel} variants={{ hidden: { opacity: 0, scale: 0.94 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7, ease: motionEase }}><img src={heroProfileImage} alt="" /><Circle className="hero-motif hero-motif--profile-circle" aria-hidden="true" /><i /><b /><Sparkles className="hero-decor hero-decor--spark" aria-hidden="true" /></motion.div>
+      <motion.div className="showcase-hero__intro" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><span className="showcase-hero__name">{personalInformation.name}</span><h1 id="home-heading">{site.home.heading}</h1><div className="showcase-hero__intro-footer"><span>{personalInformation.role}</span><a className="inline-link" href={appPath(site.home.secondaryAction.href)} data-cursor-label="Read more">{site.home.secondaryAction.label}<ArrowUpRight /></a></div></motion.div>
+      <motion.div className="showcase-hero__profile" role="img" aria-label={personalInformation.profileImageAlt} variants={{ hidden: { opacity: 0, scale: 0.94 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7, ease: motionEase }}>{personalInformation.profileImageLink ? <a href={personalInformation.profileImageLink} target="_blank" rel="noreferrer" aria-label={`Open ${personalInformation.name}'s profile image link`}><img src={contentPath(personalInformation.profileImage)} alt="" /></a> : <img src={contentPath(personalInformation.profileImage)} alt="" />}<Circle className="hero-motif hero-motif--profile-circle" aria-hidden="true" /><i /><b /><Sparkles className="hero-decor hero-decor--spark" aria-hidden="true" /></motion.div>
       <motion.div className="showcase-hero__statement" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><MousePointer2 className="hero-motif hero-motif--pointer" aria-hidden="true" /><Star className="hero-motif hero-motif--star" aria-hidden="true" /><p>{site.home.body}</p><a className="button button--ink" href={appPath(site.home.primaryAction.href)} data-cursor-label="Explore">{site.home.primaryAction.label}<ArrowUpRight /></a></motion.div>
     </motion.section>
     <ScrollIntroduction />
@@ -615,12 +635,12 @@ function SocialIcon({ label }: { label: string }) {
 function Contact() {
   return <SectionReveal className="contact-section" id="contact" labelledBy="contact-heading">
     <motion.div className="contact-section__copy" variants={sectionHeaderVariants}>
-      <h2 id="contact-heading">{site.contact.heading}</h2>
-      <p>{site.contact.body}</p>
+      <h2 id="contact-heading">{personalInformation.contactHeading}</h2>
+      <p>{personalInformation.contactBody}</p>
       <span className="contact-section__orbit" aria-hidden="true"><ArrowUpRight /></span>
     </motion.div>
     <motion.div className="contact-section__links" variants={staggerGridVariants}>
-      {site.contact.links.map((link) => (
+      {personalLinks.map((link) => (
         <motion.a
           key={link.label}
           variants={listItemVariants}

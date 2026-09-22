@@ -1,5 +1,4 @@
 {
-  "brand": { "name": "Karishma Sharma", "monogram": "KS", "role": "Designer for human judgment in complex systems", "location": "Delhi NCR, India" },
   "navigation": [
     { "label": "About", "href": "/#about" },
     { "label": "Work", "href": "/#work" },
@@ -11,7 +10,6 @@
     "body": "My work gives people a clear way to review, decide, and move forward inside systems that are anything but simple.",
     "primaryAction": { "label": "Read selected case studies", "href": "/work" },
     "secondaryAction": { "label": "How I work", "href": "/#about" },
-    "profileLabel": "Portfolio of Karishma Sharma",
     "introduction": {
       "segments": [
         { "text": "I’m a " },
@@ -81,15 +79,6 @@
         "awards": [],
         "projectSlugs": []
       }
-    ]
-  },
-  "contact": {
-    "heading": "Let’s connect.",
-    "body": "Whether you have a project in mind, a perspective to share, or simply want to say hello, I’d love to hear from you.",
-    "links": [
-      { "label": "Email", "href": "mailto:karishma.sharma2494@gmail.com" },
-      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/sharma-karishma/" },
-      { "label": "Behance", "href": "https://www.behance.net/karishma_Sharma" }
     ]
   },
   "archive": { "heading": "The work, up close.", "body": "A collection of product stories across AI, enterprise software, and the tools that keep work moving.", "supportingText": "Each project brings the process, product, and people into focus.", "filterLabel": "Browse by focus", "allLabel": "All work", "controlsBody": "Pick a project to see how it came together." },

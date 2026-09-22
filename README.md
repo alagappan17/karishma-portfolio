@@ -19,6 +19,7 @@ Case-study content is managed through [Pages CMS](https://app.pagescms.org), not
 - Insert images within any section through its rich-text editor.
 - Delete a case study with the collection's delete action.
 - Open **Lifestyle** to update the Life and curiosities heading, intro, cards, descriptions, images, image descriptions, accent colours, and card order. Lifestyle images are kept in `public/media/lifestyle`.
+- Open **Personal Information** to update the name, header monogram, professional title, profile image, optional profile-image destination link, contact message, and fixed Email, LinkedIn, and Behance links. Profile images are kept in `public/media/personal`.
 
 Saving creates a Git commit and the existing GitHub Pages workflow publishes the update automatically. Allow a few minutes for the deployment to finish.
 

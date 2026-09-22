@@ -13,6 +13,13 @@ media:
     categories: [image]
     extensions: [png, jpg, jpeg, webp, gif]
     rename: safe
+  - name: personal-images
+    label: Personal images
+    input: public/media/personal
+    output: /media/personal
+    categories: [image]
+    extensions: [png, jpg, jpeg, webp, gif]
+    rename: safe
 
 settings:
   commit:
@@ -258,3 +265,61 @@ content:
                   label: Paper
                 - name: signal
                   label: Signal
+  - name: personal-information
+    label: Personal Information
+    type: file
+    path: src/data/personalInformation.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: monogram
+        label: Monogram
+        type: string
+        required: true
+        description: The initials shown in the site header.
+      - name: role
+        label: Role / professional title
+        type: string
+        required: true
+      - name: profileImage
+        label: Profile image
+        type: image
+        required: true
+        options:
+          media: personal-images
+          path: public/media/personal
+          extensions: [png, jpg, jpeg, webp, gif]
+          rename: safe
+      - name: profileImageAlt
+        label: Profile image description
+        type: string
+        required: true
+      - name: profileImageLink
+        label: Profile image destination link
+        type: string
+        description: Optional. When set, visitors can open this link by selecting the profile image.
+      - name: contactHeading
+        label: Contact heading
+        type: string
+        required: true
+      - name: contactBody
+        label: Contact message
+        type: text
+        required: true
+      - name: email
+        label: Email address
+        type: string
+        required: true
+      - name: linkedIn
+        label: LinkedIn link
+        type: string
+        required: true
+      - name: behance
+        label: Behance link
+        type: string
+        required: true
