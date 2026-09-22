@@ -3,21 +3,27 @@ import { AnimatePresence, MotionConfig, motion, useMotionValue, useReducedMotion
 import { ArrowUpRight, Award, BriefcaseBusiness, ChevronDown, Circle, Diamond, ExternalLink, Hexagon, Mail, MousePointer2, Pen, PenTool, Pointer, Sparkles, Square, Star, Triangle, Trophy } from 'lucide-react'
 import site from './data/site.json'
 import { caseStudyContentBySlug, projects } from './content/projects'
-import personalGallery from './data/personalGallery.json'
+import lifestyleContent from './data/personalGallery.json'
 import heroProfileImage from './assets/hero-profile.png'
 import type { ProjectRecord } from './types/portfolio'
 import './Portfolio.css'
 
 type GalleryItem = {
-  id: string
   title: string
   tag: string
   cornerText: string
-  imageUrl: string
+  image: string
+  imageAlt: string
   tilt: number
   theme: 'acid' | 'peach' | 'blue' | 'lilac' | 'paper' | 'signal'
 }
-const galleryItems = personalGallery as GalleryItem[]
+type LifestyleContent = {
+  heading: string
+  intro: string
+  items: GalleryItem[]
+}
+const lifestyle = lifestyleContent as LifestyleContent
+const galleryItems = lifestyle.items
 const motionEase = [0.16, 1, 0.3, 1] as const
 
 const sectionVariants = {
@@ -347,16 +353,16 @@ function PersonalGallerySection() {
     <motion.div variants={sectionHeaderVariants}>
       <CanvasBand className="canvas-band--gallery"><span className="canvas-mark canvas-mark--camera"><Sparkles /><i /></span></CanvasBand>
       <div className="section-title">
-        <h2 id="life-heading">Life and curiosities off the screen.</h2>
+        <h2 id="life-heading">{lifestyle.heading}</h2>
         <div className="section-title__aside">
-          <p>Perspectives gathered away from the interface: 35mm exposures, high-altitude trails, ceramic craft, and slow morning rituals.</p>
+          <p>{lifestyle.intro}</p>
         </div>
       </div>
     </motion.div>
     <motion.div className="personal-gallery__grid" variants={staggerGridVariants}>
-      {galleryItems.map((item) => (
+      {galleryItems.map((item, index) => (
         <motion.article
-          key={item.id}
+          key={`${item.title}-${index}`}
           variants={galleryCardVariants}
           whileHover={{ scale: 1.08, zIndex: 30, transition: { duration: 0.25, ease: motionEase } }}
           className={`gallery-card gallery-card--${item.theme}`}
@@ -365,7 +371,7 @@ function PersonalGallerySection() {
           data-cursor-label={item.tag}
         >
           <div className="gallery-card__artifact">
-            <img src={item.imageUrl} alt={item.title} loading="lazy" className="gallery-card__img" />
+            <img src={item.image} alt={item.imageAlt} loading="lazy" className="gallery-card__img" />
             <div className="gallery-card__shade" aria-hidden="true" />
           </div>
           <div className="gallery-card__tag-pill">
@@ -390,6 +396,7 @@ function HomePage() {
       if (right.homeOrder !== undefined) return 1
       return left.slug.localeCompare(right.slug)
     })
+    .slice(0, 6)
   return <>
     <motion.section className="showcase-hero" aria-labelledby="home-heading" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11, delayChildren: 0.08 } } }}>
       <motion.div className="showcase-hero__intro" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><span className="showcase-hero__name">{site.brand.name}</span><h1 id="home-heading">{site.home.heading}</h1><div className="showcase-hero__intro-footer"><span>{site.brand.role}</span><a className="inline-link" href={appPath(site.home.secondaryAction.href)} data-cursor-label="Read more">{site.home.secondaryAction.label}<ArrowUpRight /></a></div></motion.div>

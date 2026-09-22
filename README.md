@@ -18,6 +18,7 @@ Case-study content is managed through [Pages CMS](https://app.pagescms.org), not
 - Add, replace, reorder, caption, or remove the cover and supporting images. Uploaded images are kept in `public/media/projects`.
 - Insert images within any section through its rich-text editor.
 - Delete a case study with the collection's delete action.
+- Open **Lifestyle** to update the Life and curiosities heading, intro, cards, descriptions, images, image descriptions, accent colours, and card order. Lifestyle images are kept in `public/media/lifestyle`.
 
 Saving creates a Git commit and the existing GitHub Pages workflow publishes the update automatically. Allow a few minutes for the deployment to finish.
 
@@ -25,7 +26,7 @@ Saving creates a Git commit and the existing GitHub Pages workflow publishes the
 
 - The **URL slug** becomes `/work/your-slug`. Avoid changing a slug after sharing the link; use lowercase letters, numbers, and hyphens.
 - **Display order** controls the work archive order and the next-case-study link.
-- A new case study appears in the Work archive automatically. Turn on **Show on home page** and set its order to add it to the selected-work section. Projects listed under Experience are controlled separately in `src/data/site.json` and should be updated by a site maintainer when needed.
+- A new case study appears in the Work archive automatically. Turn on **Show on home page** and set its order to add it to the selected-work section. Only the first six featured studies appear there. Projects listed under Experience are controlled separately in `src/data/site.json` and should be updated by a site maintainer when needed.
 - Use the image-description fields to provide useful alt text, not file names.
 
 ## Vite template notes

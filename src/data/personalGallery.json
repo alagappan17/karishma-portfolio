@@ -1,110 +1,114 @@
-[
-  {
-    "id": "morning-brew",
-    "title": "Morning Brew",
-    "tag": "Ritual",
-    "cornerText": "Pour-over rituals and morning stillness before Figma.",
-    "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
-    "tilt": -2.2,
-    "theme": "acid"
-  },
-  {
-    "id": "clay-and-form",
-    "title": "Clay & Form",
-    "tag": "Ceramics",
-    "cornerText": "Wheel-throwing pottery and tactile tactile balance.",
-    "imageUrl": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80",
-    "tilt": 1.8,
-    "theme": "peach"
-  },
-  {
-    "id": "alpine-trail",
-    "title": "Alpine Trails",
-    "tag": "Outdoors",
-    "cornerText": "High altitude trails for fresh perspective and silence.",
-    "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
-    "tilt": -1.4,
-    "theme": "blue"
-  },
-  {
-    "id": "35mm-grain",
-    "title": "35mm Frames",
-    "tag": "Analog",
-    "cornerText": "Street photography on a mechanical 35mm rangefinder.",
-    "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
-    "tilt": 2.2,
-    "theme": "lilac"
-  },
-  {
-    "id": "curated-exhibits",
-    "title": "Gallery Strolls",
-    "tag": "Art",
-    "cornerText": "Modern installations and spatial storytelling spaces.",
-    "imageUrl": "https://images.unsplash.com/photo-1544967082-d9d25d867d66?auto=format&fit=crop&w=800&q=80",
-    "tilt": -2.0,
-    "theme": "paper"
-  },
-  {
-    "id": "brutalist-light",
-    "title": "Shadow & Stone",
-    "tag": "Spaces",
-    "cornerText": "Brutalist angles, raw concrete, and morning shadows.",
-    "imageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-    "tilt": 1.5,
-    "theme": "signal"
-  },
-  {
-    "id": "weekend-reads",
-    "title": "Slow Reads",
-    "tag": "Books",
-    "cornerText": "Essays on design history, science fiction, and craft.",
-    "imageUrl": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
-    "tilt": -1.8,
-    "theme": "acid"
-  },
-  {
-    "id": "botanical-spaces",
-    "title": "Flora & Bloom",
-    "tag": "Botanical",
-    "cornerText": "Weekend flower market visits and studio greenery.",
-    "imageUrl": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80",
-    "tilt": 2.0,
-    "theme": "peach"
-  },
-  {
-    "id": "analog-grooves",
-    "title": "Vinyl Spins",
-    "tag": "Music",
-    "cornerText": "Digging for ambient, modal jazz, and lo-fi wax.",
-    "imageUrl": "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80",
-    "tilt": -2.2,
-    "theme": "lilac"
-  },
-  {
-    "id": "tide-lines",
-    "title": "Coastlines",
-    "tag": "Travel",
-    "cornerText": "Ocean horizon lines and quiet pauses between releases.",
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-    "tilt": 1.6,
-    "theme": "blue"
-  },
-  {
-    "id": "city-by-bike",
-    "title": "City Wheels",
-    "tag": "Exploring",
-    "cornerText": "Finding forgotten backstreets and old signage by pedal.",
-    "imageUrl": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80",
-    "tilt": -1.5,
-    "theme": "paper"
-  },
-  {
-    "id": "evening-steep",
-    "title": "Evening Tea",
-    "tag": "Unwind",
-    "cornerText": "Herbal tea steeps and notebook reflections to close.",
-    "imageUrl": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
-    "tilt": 2.1,
-    "theme": "signal"
-  }
-]
+{
+  "heading": "Life and curiosities off the screen.",
+  "intro": "Perspectives gathered away from the interface: 35mm exposures, high-altitude trails, ceramic craft, and slow morning rituals.",
+  "items": [
+    {
+      "title": "Morning Brew",
+      "tag": "Ritual",
+      "cornerText": "Pour-over rituals and morning stillness before Figma.",
+      "tilt": -2.2,
+      "theme": "acid",
+      "image": "/media/lifestyle/morning-brew.jpg",
+      "imageAlt": "Pour-over coffee beside a bright cafe window"
+    },
+    {
+      "title": "Clay & Form",
+      "tag": "Ceramics",
+      "cornerText": "Wheel-throwing pottery and tactile tactile balance.",
+      "tilt": 1.8,
+      "theme": "peach",
+      "image": "/media/lifestyle/clay-and-form.jpg",
+      "imageAlt": "Hands shaping a ceramic vessel on a pottery wheel"
+    },
+    {
+      "title": "Alpine Trails",
+      "tag": "Outdoors",
+      "cornerText": "High altitude trails for fresh perspective and silence.",
+      "tilt": -1.4,
+      "theme": "blue",
+      "image": "/media/lifestyle/alpine-trail.jpg",
+      "imageAlt": "Mountain trail rising beneath a cloudy sky"
+    },
+    {
+      "title": "35mm Frames",
+      "tag": "Analog",
+      "cornerText": "Street photography on a mechanical 35mm rangefinder.",
+      "tilt": 2.2,
+      "theme": "lilac",
+      "image": "/media/lifestyle/35mm-grain.jpg",
+      "imageAlt": "Vintage 35 millimetre camera on a tabletop"
+    },
+    {
+      "title": "Gallery Strolls",
+      "tag": "Art",
+      "cornerText": "Modern installations and spatial storytelling spaces.",
+      "tilt": -2,
+      "theme": "paper",
+      "image": "/media/lifestyle/curated-exhibits.jpg",
+      "imageAlt": "Visitor viewing contemporary art in a gallery"
+    },
+    {
+      "title": "Shadow & Stone",
+      "tag": "Spaces",
+      "cornerText": "Brutalist angles, raw concrete, and morning shadows.",
+      "tilt": 1.5,
+      "theme": "signal",
+      "image": "/media/lifestyle/brutalist-light.jpg",
+      "imageAlt": "Angular concrete architecture in strong sunlight"
+    },
+    {
+      "title": "Slow Reads",
+      "tag": "Books",
+      "cornerText": "Essays on design history, science fiction, and craft.",
+      "tilt": -1.8,
+      "theme": "acid",
+      "image": "/media/lifestyle/weekend-reads.jpg",
+      "imageAlt": "Open book with a stack of books beside it"
+    },
+    {
+      "title": "Flora & Bloom",
+      "tag": "Botanical",
+      "cornerText": "Weekend flower market visits and studio greenery.",
+      "tilt": 2,
+      "theme": "peach",
+      "image": "/media/lifestyle/botanical-spaces.jpg",
+      "imageAlt": "Colourful flowers in bloom"
+    },
+    {
+      "title": "Vinyl Spins",
+      "tag": "Music",
+      "cornerText": "Digging for ambient, modal jazz, and lo-fi wax.",
+      "tilt": -2.2,
+      "theme": "lilac",
+      "image": "/media/lifestyle/analog-grooves.jpg",
+      "imageAlt": "Vinyl record player with a record on the turntable"
+    },
+    {
+      "title": "Coastlines",
+      "tag": "Travel",
+      "cornerText": "Ocean horizon lines and quiet pauses between releases.",
+      "tilt": 1.6,
+      "theme": "blue",
+      "image": "/media/lifestyle/tide-lines.jpg",
+      "imageAlt": "Ocean waves reaching a sandy shoreline"
+    },
+    {
+      "title": "City Wheels",
+      "tag": "Exploring",
+      "cornerText": "Finding forgotten backstreets and old signage by pedal.",
+      "tilt": -1.5,
+      "theme": "paper",
+      "image": "/media/lifestyle/city-by-bike.jpg",
+      "imageAlt": "Bicycle parked on a city street"
+    },
+    {
+      "title": "Evening Tea",
+      "tag": "Unwind",
+      "cornerText": "Herbal tea steeps and notebook reflections to close.",
+      "tilt": 2.1,
+      "theme": "signal",
+      "image": "/media/lifestyle/evening-steep.jpg",
+      "imageAlt": "Cup of tea beside a book and notebook"
+    }
+  ]
+}
