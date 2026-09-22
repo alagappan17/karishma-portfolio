@@ -20,11 +20,17 @@ type EditableProject = {
   coverAlt?: string
   coverCaption?: string
   caseImages?: ProjectImage[]
+  storySections?: CaseStudySection[]
+}
+
+type CaseStudySection = {
+  heading: string
+  body: string
 }
 
 type CaseStudy = {
   project: ProjectRecord
-  markdown: string
+  sections: CaseStudySection[]
   order: number
 }
 
@@ -69,7 +75,7 @@ function parseCaseStudy(path: string, source: string): CaseStudy {
       image: cover,
       caseImages: (data.caseImages || []).filter((image) => image?.src && image?.alt),
     },
-    markdown: match[2].trim(),
+    sections: (data.storySections || []).filter((section) => section?.heading && section?.body),
   }
 }
 
@@ -78,4 +84,7 @@ const caseStudies = Object.entries(files)
   .sort((left, right) => left.order - right.order)
 
 export const projects = caseStudies.map(({ project }) => project)
-export const caseStudyContentBySlug = Object.fromEntries(caseStudies.map(({ project, markdown }) => [project.slug, markdown]))
+export const caseStudyContentBySlug = Object.fromEntries(caseStudies.map(({ project, sections }) => [
+  project.slug,
+  sections.map((section) => `## ${section.heading}\n\n${section.body.trim()}`).join('\n\n'),
+]))

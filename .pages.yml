@@ -78,7 +78,7 @@ content:
         label: Role
         type: string
       - name: duration
-        label: Duration
+        label: Timeframe
         type: string
       - name: platform
         label: Platform
@@ -153,14 +153,28 @@ content:
           - name: caption
             label: Caption
             type: string
-      - name: body
-        label: Case-study story
-        type: rich-text
-        required: true
-        options:
-          format: markdown
-          media: project-images
-          path: public/media/projects
-          extensions: [png, jpg, jpeg, webp, gif]
-          rename: safe
-          switcher: true
+      - name: storySections
+        label: Case-study sections
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{heading}"
+        description: Each item becomes one section on the case-study page. Add, remove, and reorder sections as needed.
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+            required: true
+          - name: body
+            label: Section content
+            type: rich-text
+            required: true
+            options:
+              format: markdown
+              media: project-images
+              path: public/media/projects
+              extensions: [png, jpg, jpeg, webp, gif]
+              rename: safe
+              switcher: true

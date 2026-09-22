@@ -10,42 +10,41 @@
   "platform": "Internal web application",
   "tools": [],
   "summary": "Turned a five-step AI video process into a guided creative workflow for healthcare communications.",
-  "tags": ["AI", "Workflow", "Healthcare"],
+  "tags": [
+    "AI",
+    "Workflow",
+    "Healthcare"
+  ],
   "theme": "lilac",
   "featured": false,
   "cover": "",
   "coverAlt": "Illustrative video workflow placeholder",
   "coverCaption": "",
-  "caseImages": []
+  "caseImages": [],
+  "storySections": [
+    {
+      "heading": "Overview",
+      "body": "A five-stage AI-assisted content workflow that helped healthcare communication teams move from an idea to an approved, production-ready video while keeping editorial control with people."
+    },
+    {
+      "heading": "The challenge",
+      "body": "- Video work involved many assets, scenes, reviews, and approval points.\n- Medical communication required accurate, clear review behavior.\n- Teams needed visibility across many in-flight projects and stages."
+    },
+    {
+      "heading": "Design goals",
+      "body": "- Break production into understandable stages.\n- Make generated output easy to review, edit, and approve.\n- Create clear visibility into project state and next actions."
+    },
+    {
+      "heading": "My role",
+      "body": "Designed project management, idea input, scene generation, asset setup, storyboarding, approval states, and production status patterns."
+    },
+    {
+      "heading": "Key screens and features",
+      "body": "- Project dashboard with search, status, previews, and actions.\n- Guided idea and scene-generation inputs.\n- Asset selection across generated, uploaded, and approved libraries.\n- Storyboard editing and an explicit approval checkpoint before production."
+    },
+    {
+      "heading": "Key learnings",
+      "body": "Complex creative workflows benefit from clear stages. AI works best when users can review, edit, and guide each output."
+    }
+  ]
 }
-
-## Overview
-
-A five-stage AI-assisted content workflow that helped healthcare communication teams move from an idea to an approved, production-ready video while keeping editorial control with people.
-
-## The challenge
-
-- Video work involved many assets, scenes, reviews, and approval points.
-- Medical communication required accurate, clear review behavior.
-- Teams needed visibility across many in-flight projects and stages.
-
-## Design goals
-
-- Break production into understandable stages.
-- Make generated output easy to review, edit, and approve.
-- Create clear visibility into project state and next actions.
-
-## My role
-
-Designed project management, idea input, scene generation, asset setup, storyboarding, approval states, and production status patterns.
-
-## Key screens and features
-
-- Project dashboard with search, status, previews, and actions.
-- Guided idea and scene-generation inputs.
-- Asset selection across generated, uploaded, and approved libraries.
-- Storyboard editing and an explicit approval checkpoint before production.
-
-## Key learnings
-
-Complex creative workflows benefit from clear stages. AI works best when users can review, edit, and guide each output.

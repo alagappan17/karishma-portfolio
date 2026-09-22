@@ -13,9 +13,10 @@ Case-study content is managed through [Pages CMS](https://app.pagescms.org), not
 ### What editors can do
 
 - Create a project with **New case study**. Choose a unique URL slug and display order.
-- Edit the title, summary, role, tags, tools, colour theme, and complete case-study story from one form.
+- Edit every case-study value shown on the site, including its focus, industry, role, timeframe, platform, summary, tags, tools, display order, and colour theme.
+- Manage the story as a list of named **Case-study sections**. Each section has its own heading and rich-text content, and can be added, edited, removed, or reordered without touching code.
 - Add, replace, reorder, caption, or remove the cover and supporting images. Uploaded images are kept in `public/media/projects`.
-- Insert images within the long-form story through the rich-text editor.
+- Insert images within any section through its rich-text editor.
 - Delete a case study with the collection's delete action.
 
 Saving creates a Git commit and the existing GitHub Pages workflow publishes the update automatically. Allow a few minutes for the deployment to finish.
