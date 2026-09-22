@@ -394,6 +394,7 @@ function PersonalGallerySection() {
 }
 
 function HomePage() {
+  const profileImageLink = (home as { profileImageLink?: string }).profileImageLink
   const selectedWork = projects
     .filter((project) => project.featured)
     .sort((left, right) => {
@@ -406,7 +407,7 @@ function HomePage() {
   return <>
     <motion.section className="showcase-hero" aria-labelledby="home-heading" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11, delayChildren: 0.08 } } }}>
       <motion.div className="showcase-hero__intro" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><span className="showcase-hero__name">{home.name}</span><h1 id="home-heading">{home.heading}</h1><div className="showcase-hero__intro-footer"><span>{home.role}</span><a className="inline-link" href={appPath(home.secondaryAction.href)} data-cursor-label="Read more">{home.secondaryAction.label}<ArrowUpRight /></a></div></motion.div>
-      <motion.div className="showcase-hero__profile" role="img" aria-label={home.profileImageAlt} variants={{ hidden: { opacity: 0, scale: 0.94 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7, ease: motionEase }}>{home.profileImageLink ? <a href={home.profileImageLink} target="_blank" rel="noreferrer" aria-label={`Open ${home.name}'s profile image link`}><img src={contentPath(home.profileImage)} alt="" /></a> : <img src={contentPath(home.profileImage)} alt="" />}<Circle className="hero-motif hero-motif--profile-circle" aria-hidden="true" /><i /><b /><Sparkles className="hero-decor hero-decor--spark" aria-hidden="true" /></motion.div>
+      <motion.div className="showcase-hero__profile" role="img" aria-label={home.profileImageAlt} variants={{ hidden: { opacity: 0, scale: 0.94 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7, ease: motionEase }}>{profileImageLink ? <a href={profileImageLink} target="_blank" rel="noreferrer" aria-label={`Open ${home.name}'s profile image link`}><img src={contentPath(home.profileImage)} alt="" /></a> : <img src={contentPath(home.profileImage)} alt="" />}<Circle className="hero-motif hero-motif--profile-circle" aria-hidden="true" /><i /><b /><Sparkles className="hero-decor hero-decor--spark" aria-hidden="true" /></motion.div>
       <motion.div className="showcase-hero__statement" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><MousePointer2 className="hero-motif hero-motif--pointer" aria-hidden="true" /><Star className="hero-motif hero-motif--star" aria-hidden="true" /><p>{home.body}</p><a className="button button--ink" href={appPath(home.primaryAction.href)} data-cursor-label="Explore">{home.primaryAction.label}<ArrowUpRight /></a></motion.div>
     </motion.section>
     <ScrollIntroduction />
