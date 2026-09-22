@@ -102,16 +102,17 @@ content:
         type: select
         required: true
         options:
-          - label: Blue
-            value: blue
-          - label: Butter
-            value: butter
-          - label: Ink
-            value: ink
-          - label: Lilac
-            value: lilac
-          - label: Paper
-            value: paper
+          values:
+            - name: blue
+              label: Blue
+            - name: butter
+              label: Butter
+            - name: ink
+              label: Ink
+            - name: lilac
+              label: Lilac
+            - name: paper
+              label: Paper
       - name: cover
         label: Cover image
         type: image
