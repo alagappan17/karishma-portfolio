@@ -3,112 +3,112 @@
   "intro": "Perspectives gathered away from the interface: 35mm exposures, high-altitude trails, ceramic craft, and slow morning rituals.",
   "items": [
     {
-      "title": "Morning Brew",
-      "tag": "Ritual",
-      "cornerText": "Pour-over rituals and morning stillness before Figma.",
-      "tilt": -2.2,
-      "theme": "acid",
-      "image": "/media/lifestyle/morning-brew.jpg",
-      "imageAlt": "Pour-over coffee beside a bright cafe window"
-    },
-    {
       "title": "Clay & Form",
       "tag": "Ceramics",
       "cornerText": "Wheel-throwing pottery and tactile tactile balance.",
-      "tilt": 1.8,
-      "theme": "peach",
       "image": "/media/lifestyle/clay-and-form.jpg",
-      "imageAlt": "Hands shaping a ceramic vessel on a pottery wheel"
+      "imageAlt": "Hands shaping a ceramic vessel on a pottery wheel",
+      "tilt": 1.8,
+      "theme": "peach"
+    },
+    {
+      "title": "Morning Brew",
+      "tag": "Ritual",
+      "cornerText": "Pour-over rituals and morning stillness before Figma.",
+      "image": "/media/lifestyle/morning-brew.jpg",
+      "imageAlt": "Pour-over coffee beside a bright cafe window",
+      "tilt": -2.2,
+      "theme": "acid"
     },
     {
       "title": "Alpine Trails",
       "tag": "Outdoors",
       "cornerText": "High altitude trails for fresh perspective and silence.",
-      "tilt": -1.4,
-      "theme": "blue",
       "image": "/media/lifestyle/alpine-trail.jpg",
-      "imageAlt": "Mountain trail rising beneath a cloudy sky"
+      "imageAlt": "Mountain trail rising beneath a cloudy sky",
+      "tilt": -1.4,
+      "theme": "blue"
     },
     {
       "title": "35mm Frames",
       "tag": "Analog",
       "cornerText": "Street photography on a mechanical 35mm rangefinder.",
-      "tilt": 2.2,
-      "theme": "lilac",
       "image": "/media/lifestyle/35mm-grain.jpg",
-      "imageAlt": "Vintage 35 millimetre camera on a tabletop"
+      "imageAlt": "Vintage 35 millimetre camera on a tabletop",
+      "tilt": 2.2,
+      "theme": "lilac"
     },
     {
       "title": "Gallery Strolls",
       "tag": "Art",
       "cornerText": "Modern installations and spatial storytelling spaces.",
-      "tilt": -2,
-      "theme": "paper",
       "image": "/media/lifestyle/curated-exhibits.jpg",
-      "imageAlt": "Visitor viewing contemporary art in a gallery"
+      "imageAlt": "Visitor viewing contemporary art in a gallery",
+      "tilt": -2,
+      "theme": "paper"
     },
     {
       "title": "Shadow & Stone",
       "tag": "Spaces",
       "cornerText": "Brutalist angles, raw concrete, and morning shadows.",
-      "tilt": 1.5,
-      "theme": "signal",
       "image": "/media/lifestyle/brutalist-light.jpg",
-      "imageAlt": "Angular concrete architecture in strong sunlight"
+      "imageAlt": "Angular concrete architecture in strong sunlight",
+      "tilt": 1.5,
+      "theme": "signal"
     },
     {
       "title": "Slow Reads",
       "tag": "Books",
       "cornerText": "Essays on design history, science fiction, and craft.",
-      "tilt": -1.8,
-      "theme": "acid",
       "image": "/media/lifestyle/weekend-reads.jpg",
-      "imageAlt": "Open book with a stack of books beside it"
+      "imageAlt": "Open book with a stack of books beside it",
+      "tilt": -1.8,
+      "theme": "acid"
     },
     {
       "title": "Flora & Bloom",
       "tag": "Botanical",
       "cornerText": "Weekend flower market visits and studio greenery.",
-      "tilt": 2,
-      "theme": "peach",
       "image": "/media/lifestyle/botanical-spaces.jpg",
-      "imageAlt": "Colourful flowers in bloom"
+      "imageAlt": "Colourful flowers in bloom",
+      "tilt": 2,
+      "theme": "peach"
     },
     {
       "title": "Vinyl Spins",
       "tag": "Music",
       "cornerText": "Digging for ambient, modal jazz, and lo-fi wax.",
-      "tilt": -2.2,
-      "theme": "lilac",
       "image": "/media/lifestyle/analog-grooves.jpg",
-      "imageAlt": "Vinyl record player with a record on the turntable"
+      "imageAlt": "Vinyl record player with a record on the turntable",
+      "tilt": -2.2,
+      "theme": "lilac"
     },
     {
       "title": "Coastlines",
       "tag": "Travel",
       "cornerText": "Ocean horizon lines and quiet pauses between releases.",
-      "tilt": 1.6,
-      "theme": "blue",
       "image": "/media/lifestyle/tide-lines.jpg",
-      "imageAlt": "Ocean waves reaching a sandy shoreline"
+      "imageAlt": "Ocean waves reaching a sandy shoreline",
+      "tilt": 1.6,
+      "theme": "blue"
     },
     {
       "title": "City Wheels",
       "tag": "Exploring",
       "cornerText": "Finding forgotten backstreets and old signage by pedal.",
-      "tilt": -1.5,
-      "theme": "paper",
       "image": "/media/lifestyle/city-by-bike.jpg",
-      "imageAlt": "Bicycle parked on a city street"
+      "imageAlt": "Bicycle parked on a city street",
+      "tilt": -1.5,
+      "theme": "paper"
     },
     {
       "title": "Evening Tea",
       "tag": "Unwind",
       "cornerText": "Herbal tea steeps and notebook reflections to close.",
-      "tilt": 2.1,
-      "theme": "signal",
       "image": "/media/lifestyle/evening-steep.jpg",
-      "imageAlt": "Cup of tea beside a book and notebook"
+      "imageAlt": "Cup of tea beside a book and notebook",
+      "tilt": 2.1,
+      "theme": "signal"
     }
   ]
 }
