@@ -161,7 +161,7 @@ function Header() {
   return <motion.header className="portfolio-header" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: motionEase }}>
     <a className="portfolio-mark" href={appPath()} aria-label={site.brand.name} data-cursor-label="Home"><span>{site.brand.monogram}</span><strong>{site.brand.name}</strong></a>
     <nav aria-label="Primary navigation">{site.navigation.map((item) => <a key={item.href} href={appPath(item.href)} data-cursor-label={item.label}>{item.label}</a>)}</nav>
-    <a className="portfolio-location" href={appPath('/#contact')} data-cursor-label="Contact">{site.brand.location}<ArrowUpRight size={14} /></a>
+    <a className="portfolio-location" href={appPath('/#contact')} data-cursor-label="Contact">Contact<ArrowUpRight size={14} /></a>
   </motion.header>
 }
 
@@ -425,13 +425,13 @@ function WorkArchive() {
   return <SectionReveal className="archive-page" labelledBy="archive-heading">
     <motion.header className="archive-page__intro" variants={sectionHeaderVariants}>
       <h1 id="archive-heading">{site.archive.heading}</h1>
-      <div><p>{site.archive.body}</p><span>Projects across AI, enterprise systems, and operational tools.</span></div>
+      <div><p>{site.archive.body}</p><span>{site.archive.supportingText}</span></div>
     </motion.header>
     <motion.div className="archive-page__controls" variants={sectionHeaderVariants}>
       <div className="filter-row" aria-label={site.archive.filterLabel}>
         {filters.map((item) => <button className={filter === item ? 'is-active' : ''} key={item} onClick={() => setFilter(item)} type="button" data-cursor-label={item}>{item}</button>)}
       </div>
-      <p>Choose a project to step inside the decisions, tradeoffs, and working screens behind it.</p>
+      <p>{site.archive.controlsBody}</p>
     </motion.div>
     <motion.div className="archive-grid" layout variants={staggerGridVariants}>
       {visibleProjects.map((project) => <motion.a layout variants={cardItemVariants} whileHover={{ y: -6, transition: { duration: 0.25, ease: motionEase } }} className={`archive-project archive-project--${project.theme}`} href={appPath(`/work/${project.slug}`)} key={project.slug} transition={{ duration: 0.35, ease: motionEase }} data-cursor-label="View case study">
@@ -517,6 +517,7 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
   const currentIndex = projects.findIndex((item) => item.slug === project.slug)
   const nextProject = projects[(currentIndex + 1) % projects.length]
   const details = [
+    ["Focus", project.category],
     [site.caseStudy.roleLabel, project.role],
     [site.caseStudy.industryLabel, project.industry],
     [site.caseStudy.durationLabel, project.duration],
@@ -528,7 +529,6 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
   return <article className={`case-study case-study--${project.theme}`}>
     <motion.div className="case-study__nav" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: motionEase }}>
       <a className="case-back" href={appPath('/work')} data-cursor-label="All work">{site.caseStudy.backLabel}<ArrowUpRight /></a>
-      <span>{project.industry}</span>
     </motion.div>
 
     <motion.header
@@ -538,7 +538,6 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.05 } } }}
     >
       <motion.div className="case-hero__title" variants={cardItemVariants}>
-        <p>{project.category}</p>
         <h1>{project.title}</h1>
         <p className="case-summary">{project.summary}</p>
       </motion.div>
@@ -549,6 +548,20 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
         <ProjectArtifact project={project} image={caseImages[0]} className="case-hero__artifact" />
       </motion.div>
     </motion.header>
+
+    <motion.section
+      className="case-metadata"
+      aria-labelledby="project-details"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={sectionHeaderVariants}
+    >
+      <h2 id="project-details">{site.caseStudy.metadataLabel}</h2>
+      {details.filter(([, value]) => value).map(([label, value]) => (
+        <div key={label}><span>{label}</span><p>{value}</p></div>
+      ))}
+    </motion.section>
 
     {caseImages.length > 1 && (
       <motion.section
@@ -572,18 +585,6 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
     )}
 
     <div className="case-layout">
-      <motion.aside
-        className="case-metadata"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={sectionHeaderVariants}
-      >
-        <h2>{site.caseStudy.metadataLabel}</h2>
-        {details.filter(([, value]) => value).map(([label, value]) => (
-          <div key={label}><span>{label}</span><p>{value}</p></div>
-        ))}
-      </motion.aside>
       <MarkdownContent markdown={content} project={project} />
     </div>
 

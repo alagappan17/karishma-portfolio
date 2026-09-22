@@ -93,7 +93,7 @@
       { "label": "Behance", "href": "https://www.behance.net/karishma_Sharma" }
     ]
   },
-  "archive": { "heading": "An index of systems, interfaces, and decisions.", "body": "Projects in enterprise software, intelligent tools, operational visibility, and high-trust workflows.", "filterLabel": "Filter the index", "allLabel": "All work" },
-  "caseStudy": { "backLabel": "Back to the index", "metadataLabel": "Project notes", "nextLabel": "Continue to the next study", "imagePlaceholderLabel": "Illustrative project artifact", "roleLabel": "Contribution", "industryLabel": "Context", "durationLabel": "Timeframe", "platformLabel": "Surface", "toolsLabel": "Working tools" },
+  "archive": { "heading": "The work, up close.", "body": "A collection of product stories across AI, enterprise software, and the tools that keep work moving.", "supportingText": "Each project brings the process, product, and people into focus.", "filterLabel": "Browse by focus", "allLabel": "All work", "controlsBody": "Pick a project to see how it came together." },
+  "caseStudy": { "backLabel": "Back to all work", "metadataLabel": "Project details", "nextLabel": "Continue to the next study", "imagePlaceholderLabel": "Illustrative project artifact", "roleLabel": "Contribution", "industryLabel": "Context", "durationLabel": "Timeframe", "platformLabel": "Surface", "toolsLabel": "Working tools" },
   "footer": { "label": "Selected work by Karishma Sharma", "year": "2026" }
 }
