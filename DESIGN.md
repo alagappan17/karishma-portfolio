@@ -211,7 +211,7 @@ Borders are purposeful and spare: a faint ink hairline separates mockup frames, 
 ### Expandable Experience Timeline
 
 - **Character:** an ink-on-dark chronology that turns resume facts into a focused, accessible exploration surface.
-- **Interaction:** clicking an experience entry activates it. The active entry receives a subtle light field, its chevron rotates, and its details animate open or closed through `AnimatePresence` in 280ms. The button exposes its state through `aria-expanded`. Long details stay in a responsive, keyboard-scrollable region so new content cannot overgrow the section.
+- **Interaction:** all experience entries begin collapsed; clicking an entry activates it. The active entry receives a subtle light field, its chevron rotates, and its details animate open or closed through `AnimatePresence` in 280ms. The button exposes its state through `aria-expanded`. The complete timeline is a responsive, keyboard-scrollable region with a persistently visible acid-green scrollbar, so expanded entries push later entries down without making the section grow indefinitely.
 - **Content:** each active entry may show its summary, detail list, tags, recognition, and related case-study links. Deloitte recognition is shown as compact lilac award marks. Related links use the selected project records, not duplicated titles.
 - **Data rule:** `src/data/experience.json` owns the experience items, labels, awards, and `projectSlugs`. Each slug maps to the matching self-contained record in `src/content/projects/`, then routes to `/work/:slug`.
 

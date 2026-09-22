@@ -70,7 +70,13 @@ a:focus-visible,button:focus-visible { outline:3px solid var(--signal); outline-
 .experience-section__line { position:relative; display:flex; align-items:center; gap:12px; margin-top:auto; color:var(--lilac); opacity:.8; }
 .experience-section__line::before { width:74px; height:1px; background:currentColor; content:''; }
 .experience-section__line svg { width:19px; height:19px; stroke-width:1.35; }
-.experience-timeline { align-self:start; border-top:1px solid rgba(255,255,255,.24); }
+.experience-timeline { align-self:start; max-block-size:min(70svh,760px); overflow-y:scroll; overscroll-behavior:contain; border-top:1px solid rgba(255,255,255,.24); scrollbar-color:var(--acid) rgba(255,255,255,.08); scrollbar-gutter:stable; }
+.experience-timeline::-webkit-scrollbar { width:12px; }
+.experience-timeline::-webkit-scrollbar-track { margin-block:12px; border-radius:999px; background:rgba(255,255,255,.08); }
+.experience-timeline::-webkit-scrollbar-thumb { border:3px solid transparent; border-radius:999px; background:var(--acid); background-clip:padding-box; animation:experience-scrollbar-reveal .48s cubic-bezier(.16,1,.3,1) both; transition:background-color .25s ease,filter .25s ease; }
+.experience-timeline:hover::-webkit-scrollbar-thumb,.experience-timeline:focus-within::-webkit-scrollbar-thumb { background-color:var(--acid); filter:brightness(1.08); }
+.experience-timeline:focus-visible { outline:2px solid var(--acid); outline-offset:4px; }
+@keyframes experience-scrollbar-reveal { from { background-color:rgba(215,239,160,.26); } to { background-color:var(--acid); } }
 .experience-entry { position:relative; border-bottom:1px solid rgba(255,255,255,.24); transition:background-color .2s ease; }
 .experience-entry.is-active { background:rgba(255,255,255,.055); }
 .experience-entry.is-highlighted { box-shadow:inset 0 1px 0 var(--acid); }
@@ -83,11 +89,6 @@ a:focus-visible,button:focus-visible { outline:3px solid var(--signal); outline-
 .experience-entry__chevron { width:20px; height:20px; color:var(--lilac); transition:transform .25s ease; }
 .experience-entry.is-active .experience-entry__chevron { transform:rotate(180deg); }
 .experience-entry__details { overflow:hidden; }
-.experience-entry__details-scroll { max-block-size:min(58svh,640px); overflow-y:auto; overscroll-behavior:contain; scrollbar-color:rgba(216,208,251,.72) rgba(255,255,255,.08); scrollbar-gutter:stable; }
-.experience-entry__details-scroll::-webkit-scrollbar { width:10px; }
-.experience-entry__details-scroll::-webkit-scrollbar-track { background:rgba(255,255,255,.08); }
-.experience-entry__details-scroll::-webkit-scrollbar-thumb { border:3px solid transparent; border-radius:999px; background:rgba(216,208,251,.72); background-clip:padding-box; }
-.experience-entry__details-scroll:focus-visible { outline:2px solid var(--acid); outline-offset:-3px; }
 .experience-entry__details-inner { display:grid; grid-template-columns:1fr; gap:22px; padding:2px 28px 38px; }
 .experience-entry__summary { max-width:58ch; margin:0; padding-bottom:22px; border-bottom:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:500; letter-spacing:-.03em; line-height:1.35; }
 .experience-entry__details ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:32px; row-gap:12px; max-width:none; margin:0; padding:0 0 0 18px; color:#c9cbc1; font-size:12px; line-height:1.55; }
@@ -210,7 +211,7 @@ a:focus-visible,button:focus-visible { outline:3px solid var(--signal); outline-
   .experience-section__intro { min-height:310px; }
   .experience-section__line { margin-top:38px; }
   .experience-entry__trigger { padding-inline:24px; }
-  .experience-entry__details-scroll { max-block-size:min(56svh,560px); }
+  .experience-timeline { max-block-size:min(66svh,660px); }
   .experience-entry__details-inner { padding:2px 24px 30px; }
   .experience-entry__summary { grid-column:auto; }
   .experience-awards,.experience-projects { grid-column:auto; }
@@ -288,7 +289,7 @@ a:focus-visible,button:focus-visible { outline:3px solid var(--signal); outline-
   .experience-section__intro > svg { margin-bottom:18px; }
   .experience-section__line { margin-top:28px; }
   .experience-entry__trigger { grid-template-columns:minmax(0,1fr) 20px; padding:20px 16px; }
-  .experience-entry__details-scroll { max-block-size:min(54svh,460px); }
+  .experience-timeline { max-block-size:min(60svh,560px); }
   .experience-entry__title strong { font-size:1.35rem; }
   .experience-entry__details-inner { padding:0 16px 24px; }
   .experience-entry__summary { font-size:15px; }

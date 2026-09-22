@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "label": "About", "href": "/#about" },
+    { "label": "Work", "href": "/#work" },
+    { "label": "Experience", "href": "/#experience" }
+  ],
+  "contactLabel": "Contact",
+  "contactHref": "/#contact"
+}

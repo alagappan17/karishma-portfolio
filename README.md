@@ -19,8 +19,10 @@ Case-study content is managed through [Pages CMS](https://app.pagescms.org), not
 - Insert images within any section through its rich-text editor.
 - Delete a case study with the collection's delete action.
 - Open **Lifestyle** to update the Life and curiosities heading, intro, cards, descriptions, images, image descriptions, accent colours, and card order. Lifestyle images are kept in `public/media/lifestyle`.
-- Open **Personal Information** to update the name, header monogram, professional title, profile image, optional profile-image destination link, contact message, and fixed Email, LinkedIn, and Behance links. Profile images are kept in `public/media/personal`.
-- Open **Experience** to manage the section heading, interaction labels, roles, responsibilities, skills, recognition, and related case studies. Entries can be added, removed, and reordered; longer expanded entries scroll within the section.
+- Open **Home Page** to update everything on the home page: the hero identity, profile image, headings, calls to action, scroll introduction, and selected-work copy. Profile images are kept in `public/media/personal`.
+- Open **Contact** to update the contact heading, message, and fixed Email, LinkedIn, and Behance links.
+- Open **Navigation**, **Work Archive**, or **Case Study Page** to edit the copy and links for those corresponding website areas.
+- Open **Experience** to manage the section heading, interaction labels, roles, responsibilities, skills, recognition, and related case studies. Entries can be added, removed, and reordered; the complete timeline stays scrollable as roles are expanded.
 
 Saving creates a Git commit and the existing GitHub Pages workflow publishes the update automatically. Allow a few minutes for the deployment to finish.
 
@@ -28,7 +30,7 @@ Saving creates a Git commit and the existing GitHub Pages workflow publishes the
 
 - The **URL slug** becomes `/work/your-slug`. Avoid changing a slug after sharing the link; use lowercase letters, numbers, and hyphens.
 - **Display order** controls the work archive order and the next-case-study link.
-- A new case study appears in the Work archive automatically. Turn on **Show on home page** and set its order to add it to the selected-work section. Only the first six featured studies appear there. Projects listed under Experience are controlled separately in `src/data/site.json` and should be updated by a site maintainer when needed.
+- A new case study appears in the Work archive automatically. Turn on **Show on home page** and set its order to add it to the selected-work section. Only the first six featured studies appear there. Projects listed under Experience are managed in **Experience** through Pages CMS.
 - Use the image-description fields to provide useful alt text, not file names.
 
 ## Vite template notes

@@ -1,11 +1,14 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, MotionConfig, motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from 'motion/react'
 import { ArrowUpRight, Award, BriefcaseBusiness, ChevronDown, Circle, Diamond, ExternalLink, Hexagon, Mail, MousePointer2, Pen, PenTool, Pointer, Sparkles, Square, Star, Triangle, Trophy } from 'lucide-react'
-import site from './data/site.json'
+import archiveContent from './data/workArchive.json'
+import caseStudyContent from './data/caseStudySettings.json'
+import contactContent from './data/contact.json'
+import homeContent from './data/homePage.json'
+import navigationContent from './data/navigation.json'
 import { caseStudyContentBySlug, projects } from './content/projects'
 import experienceContent from './data/experience.json'
 import lifestyleContent from './data/personalGallery.json'
-import personalInformationContent from './data/personalInformation.json'
 import type { ProjectRecord } from './types/portfolio'
 import './Portfolio.css'
 
@@ -25,25 +28,16 @@ type LifestyleContent = {
 }
 const lifestyle = lifestyleContent as LifestyleContent
 const galleryItems = lifestyle.items
-type PersonalInformation = {
-  name: string
-  monogram: string
-  role: string
-  profileImage: string
-  profileImageAlt: string
-  profileImageLink?: string
-  contactHeading: string
-  contactBody: string
-  email: string
-  linkedIn: string
-  behance: string
-}
-const personalInformation = personalInformationContent as PersonalInformation
+const home = homeContent
+const navigation = navigationContent
+const archive = archiveContent
+const caseStudySettings = caseStudyContent
+const contact = contactContent
 const experience = experienceContent
 const personalLinks = [
-  { label: 'Email', href: `mailto:${personalInformation.email}` },
-  { label: 'LinkedIn', href: personalInformation.linkedIn },
-  { label: 'Behance', href: personalInformation.behance },
+  { label: 'Email', href: `mailto:${contact.email}` },
+  { label: 'LinkedIn', href: contact.linkedIn },
+  { label: 'Behance', href: contact.behance },
 ]
 const motionEase = [0.16, 1, 0.3, 1] as const
 
@@ -148,7 +142,7 @@ function Cursor() {
 
 function Placeholder({ project, image = project.image, compact = false, variant = 0, className = '' }: { project: ProjectRecord; image?: ProjectRecord['image']; compact?: boolean; variant?: number; className?: string }) {
   return <div className={`media-placeholder media-placeholder--${project.theme} media-placeholder--variant-${variant % 3} ${compact ? 'media-placeholder--compact' : ''} ${className}`} role="img" aria-label={image.alt}>
-    <span className="media-placeholder__caption">{site.caseStudy.imagePlaceholderLabel}</span><span className="media-placeholder__bar media-placeholder__bar--one" /><span className="media-placeholder__bar media-placeholder__bar--two" /><span className="media-placeholder__block" /><span className="media-placeholder__dot media-placeholder__dot--one" /><span className="media-placeholder__dot media-placeholder__dot--two" />
+    <span className="media-placeholder__caption">{caseStudySettings.imagePlaceholderLabel}</span><span className="media-placeholder__bar media-placeholder__bar--one" /><span className="media-placeholder__bar media-placeholder__bar--two" /><span className="media-placeholder__block" /><span className="media-placeholder__dot media-placeholder__dot--one" /><span className="media-placeholder__dot media-placeholder__dot--two" />
   </div>
 }
 
@@ -174,9 +168,9 @@ function MarkdownImage({ line, project, imageIndex }: { line: string; project: P
 
 function Header() {
   return <motion.header className="portfolio-header" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: motionEase }}>
-    <a className="portfolio-mark" href={appPath()} aria-label={personalInformation.name} data-cursor-label="Home"><span>{personalInformation.monogram}</span><strong>{personalInformation.name}</strong></a>
-    <nav aria-label="Primary navigation">{site.navigation.map((item) => <a key={item.href} href={appPath(item.href)} data-cursor-label={item.label}>{item.label}</a>)}</nav>
-    <a className="portfolio-location" href={appPath('/#contact')} data-cursor-label="Contact">Contact<ArrowUpRight size={14} /></a>
+    <a className="portfolio-mark" href={appPath()} aria-label={home.name} data-cursor-label="Home"><span>{home.monogram}</span><strong>{home.name}</strong></a>
+    <nav aria-label="Primary navigation">{navigation.items.map((item) => <a key={item.href} href={appPath(item.href)} data-cursor-label={item.label}>{item.label}</a>)}</nav>
+    <a className="portfolio-location" href={appPath(navigation.contactHref)} data-cursor-label={navigation.contactLabel}>{navigation.contactLabel}<ArrowUpRight size={14} /></a>
   </motion.header>
 }
 
@@ -197,13 +191,13 @@ function ExperienceSection() {
   const caseStudies = activeExperience ? activeExperience.projectSlugs.map((slug) => projects.find((project) => project.slug === slug)).filter((project): project is ProjectRecord => Boolean(project)) : []
   return <SectionReveal className="experience-section" id="experience" labelledBy="experience-heading">
     <motion.div className="experience-section__intro" variants={sectionHeaderVariants}><BriefcaseBusiness aria-hidden="true" /><h2 id="experience-heading">{experience.heading}</h2><p>{experience.body}</p><span className="experience-section__line" aria-hidden="true"><PenTool /><Sparkles /></span></motion.div>
-    <motion.div className="experience-timeline" variants={staggerGridVariants}>{experience.items.map((item, index) => {
+    <motion.div className="experience-timeline" variants={staggerGridVariants} role="region" aria-label="Experience timeline" tabIndex={0}>{experience.items.map((item, index) => {
       const isActive = activeIndex === index
       return <motion.article key={`${item.company}-${item.period}`} variants={listItemVariants} className={`experience-entry ${isActive ? 'is-active' : ''} ${item.highlighted ? 'is-highlighted' : ''}`}>
         <button type="button" onClick={() => toggleIndex(index)} aria-expanded={isActive} aria-label={isActive ? experience.collapseLabel : experience.expandLabel} className="experience-entry__trigger" data-cursor-label={isActive ? experience.collapseLabel : experience.expandLabel}>
           <span className="experience-entry__title"><small className="experience-entry__period">{item.period}</small><strong>{item.company}</strong><small>{item.role} · {item.duration}</small></span><ChevronDown className="experience-entry__chevron" aria-hidden="true" />
         </button>
-        <AnimatePresence initial={false}>{isActive && <motion.div className="experience-entry__details" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: motionEase }}><div className="experience-entry__details-scroll" role="region" aria-label={`${item.company} experience details`} tabIndex={0}><div className="experience-entry__details-inner"><p className="experience-entry__summary">{item.summary}</p><ul>{item.details.map((detail) => <li key={detail}>{detail}</li>)}</ul><div className="experience-tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{item.awards.length > 0 && <div className="experience-awards"><span><Trophy aria-hidden="true" />{experience.awardLabel}</span><div>{item.awards.map((award) => <mark key={award}><Award aria-hidden="true" />{award}</mark>)}</div></div>}{caseStudies.length > 0 && <div className="experience-projects"><span><Star aria-hidden="true" />{experience.projectLabel}</span><div>{caseStudies.map((project) => <a href={appPath(`/work/${project.slug}`)} key={project.slug} data-cursor-label="Open case study">{project.shortTitle}<ExternalLink aria-hidden="true" /></a>)}</div></div>}</div></div></motion.div>}</AnimatePresence>
+        <AnimatePresence initial={false}>{isActive && <motion.div className="experience-entry__details" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: motionEase }}><div className="experience-entry__details-inner"><p className="experience-entry__summary">{item.summary}</p><ul>{item.details.map((detail) => <li key={detail}>{detail}</li>)}</ul><div className="experience-tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{item.awards.length > 0 && <div className="experience-awards"><span><Trophy aria-hidden="true" />{experience.awardLabel}</span><div>{item.awards.map((award) => <mark key={award}><Award aria-hidden="true" />{award}</mark>)}</div></div>}{caseStudies.length > 0 && <div className="experience-projects"><span><Star aria-hidden="true" />{experience.projectLabel}</span><div>{caseStudies.map((project) => <a href={appPath(`/work/${project.slug}`)} key={project.slug} data-cursor-label="Open case study">{project.shortTitle}<ExternalLink aria-hidden="true" /></a>)}</div></div>}</div></motion.div>}</AnimatePresence>
       </motion.article>
     })}</motion.div>
   </SectionReveal>
@@ -334,7 +328,7 @@ function ScrollIntroDecorations({ progress, reducedMotion }: { progress: MotionV
 }
 
 function ScrollIntroduction() {
-  const introduction = site.home.introduction as { segments: IntroSegment[] }
+  const introduction = home.introduction as { segments: IntroSegment[] }
   const sectionRef = useRef<HTMLElement>(null)
   const reducedMotion = useReducedMotion()
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] })
@@ -411,20 +405,20 @@ function HomePage() {
     .slice(0, 6)
   return <>
     <motion.section className="showcase-hero" aria-labelledby="home-heading" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11, delayChildren: 0.08 } } }}>
-      <motion.div className="showcase-hero__intro" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><span className="showcase-hero__name">{personalInformation.name}</span><h1 id="home-heading">{site.home.heading}</h1><div className="showcase-hero__intro-footer"><span>{personalInformation.role}</span><a className="inline-link" href={appPath(site.home.secondaryAction.href)} data-cursor-label="Read more">{site.home.secondaryAction.label}<ArrowUpRight /></a></div></motion.div>
-      <motion.div className="showcase-hero__profile" role="img" aria-label={personalInformation.profileImageAlt} variants={{ hidden: { opacity: 0, scale: 0.94 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7, ease: motionEase }}>{personalInformation.profileImageLink ? <a href={personalInformation.profileImageLink} target="_blank" rel="noreferrer" aria-label={`Open ${personalInformation.name}'s profile image link`}><img src={contentPath(personalInformation.profileImage)} alt="" /></a> : <img src={contentPath(personalInformation.profileImage)} alt="" />}<Circle className="hero-motif hero-motif--profile-circle" aria-hidden="true" /><i /><b /><Sparkles className="hero-decor hero-decor--spark" aria-hidden="true" /></motion.div>
-      <motion.div className="showcase-hero__statement" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><MousePointer2 className="hero-motif hero-motif--pointer" aria-hidden="true" /><Star className="hero-motif hero-motif--star" aria-hidden="true" /><p>{site.home.body}</p><a className="button button--ink" href={appPath(site.home.primaryAction.href)} data-cursor-label="Explore">{site.home.primaryAction.label}<ArrowUpRight /></a></motion.div>
+      <motion.div className="showcase-hero__intro" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><span className="showcase-hero__name">{home.name}</span><h1 id="home-heading">{home.heading}</h1><div className="showcase-hero__intro-footer"><span>{home.role}</span><a className="inline-link" href={appPath(home.secondaryAction.href)} data-cursor-label="Read more">{home.secondaryAction.label}<ArrowUpRight /></a></div></motion.div>
+      <motion.div className="showcase-hero__profile" role="img" aria-label={home.profileImageAlt} variants={{ hidden: { opacity: 0, scale: 0.94 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7, ease: motionEase }}>{home.profileImageLink ? <a href={home.profileImageLink} target="_blank" rel="noreferrer" aria-label={`Open ${home.name}'s profile image link`}><img src={contentPath(home.profileImage)} alt="" /></a> : <img src={contentPath(home.profileImage)} alt="" />}<Circle className="hero-motif hero-motif--profile-circle" aria-hidden="true" /><i /><b /><Sparkles className="hero-decor hero-decor--spark" aria-hidden="true" /></motion.div>
+      <motion.div className="showcase-hero__statement" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.65, ease: motionEase }}><MousePointer2 className="hero-motif hero-motif--pointer" aria-hidden="true" /><Star className="hero-motif hero-motif--star" aria-hidden="true" /><p>{home.body}</p><a className="button button--ink" href={appPath(home.primaryAction.href)} data-cursor-label="Explore">{home.primaryAction.label}<ArrowUpRight /></a></motion.div>
     </motion.section>
     <ScrollIntroduction />
     <SectionReveal className="home-work" id="work" labelledBy="selected-work">
       <motion.div variants={sectionHeaderVariants}>
         <CanvasBand className="canvas-band--work"><span className="canvas-mark canvas-mark--star"><Star /><i /></span></CanvasBand>
-        <div className="section-title"><h2 id="selected-work">{site.home.workHeading}</h2><div className="section-title__aside"><a className="archive-link archive-link--top" href={appPath(site.home.archiveHref)} data-cursor-label="Browse work">{site.home.archiveLabel}<ArrowUpRight /></a><p>{site.home.workBody}</p></div></div>
+        <div className="section-title"><h2 id="selected-work">{home.workHeading}</h2><div className="section-title__aside"><a className="archive-link archive-link--top" href={appPath(home.archiveHref)} data-cursor-label="Browse work">{home.archiveLabel}<ArrowUpRight /></a><p>{home.workBody}</p></div></div>
       </motion.div>
       <motion.div className="featured-grid" variants={staggerGridVariants}>
         {selectedWork.map((project) => <ProjectCard key={project.slug} project={project} featured compact />)}
       </motion.div>
-      <motion.a variants={sectionHeaderVariants} className="archive-link" href={appPath(site.home.archiveHref)} data-cursor-label="Browse work">{site.home.archiveLabel}<ArrowUpRight /></motion.a>
+      <motion.a variants={sectionHeaderVariants} className="archive-link" href={appPath(home.archiveHref)} data-cursor-label="Browse work">{home.archiveLabel}<ArrowUpRight /></motion.a>
     </SectionReveal>
     <ExperienceSection />
     <PersonalGallerySection />
@@ -432,19 +426,19 @@ function HomePage() {
 }
 
 function WorkArchive() {
-  const [filter, setFilter] = useState(site.archive.allLabel)
-  const filters = [site.archive.allLabel, ...Array.from(new Set(projects.flatMap((project) => project.tags).filter((tag) => ['AI', 'Enterprise', 'Data', 'Design systems'].includes(tag))))]
-  const visibleProjects = useMemo(() => filter === site.archive.allLabel ? projects : projects.filter((project) => project.tags.includes(filter)), [filter])
+  const [filter, setFilter] = useState(archive.allLabel)
+  const filters = [archive.allLabel, ...Array.from(new Set(projects.flatMap((project) => project.tags).filter((tag) => ['AI', 'Enterprise', 'Data', 'Design systems'].includes(tag))))]
+  const visibleProjects = useMemo(() => filter === archive.allLabel ? projects : projects.filter((project) => project.tags.includes(filter)), [filter])
   return <SectionReveal className="archive-page" labelledBy="archive-heading">
     <motion.header className="archive-page__intro" variants={sectionHeaderVariants}>
-      <h1 id="archive-heading">{site.archive.heading}</h1>
-      <div><p>{site.archive.body}</p><span>{site.archive.supportingText}</span></div>
+      <h1 id="archive-heading">{archive.heading}</h1>
+      <div><p>{archive.body}</p><span>{archive.supportingText}</span></div>
     </motion.header>
     <motion.div className="archive-page__controls" variants={sectionHeaderVariants}>
-      <div className="filter-row" aria-label={site.archive.filterLabel}>
+      <div className="filter-row" aria-label={archive.filterLabel}>
         {filters.map((item) => <button className={filter === item ? 'is-active' : ''} key={item} onClick={() => setFilter(item)} type="button" data-cursor-label={item}>{item}</button>)}
       </div>
-      <p>{site.archive.controlsBody}</p>
+      <p>{archive.controlsBody}</p>
     </motion.div>
     <motion.div className="archive-grid" layout variants={staggerGridVariants}>
       {visibleProjects.map((project) => <motion.a layout variants={cardItemVariants} whileHover={{ y: -6, transition: { duration: 0.25, ease: motionEase } }} className={`archive-project archive-project--${project.theme}`} href={appPath(`/work/${project.slug}`)} key={project.slug} transition={{ duration: 0.35, ease: motionEase }} data-cursor-label="View case study">
@@ -531,17 +525,17 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
   const nextProject = projects[(currentIndex + 1) % projects.length]
   const details = [
     ["Focus", project.category],
-    [site.caseStudy.roleLabel, project.role],
-    [site.caseStudy.industryLabel, project.industry],
-    [site.caseStudy.durationLabel, project.duration],
-    [site.caseStudy.platformLabel, project.platform],
-    [site.caseStudy.toolsLabel, project.tools.join(', ') || null],
+    [caseStudySettings.roleLabel, project.role],
+    [caseStudySettings.industryLabel, project.industry],
+    [caseStudySettings.durationLabel, project.duration],
+    [caseStudySettings.platformLabel, project.platform],
+    [caseStudySettings.toolsLabel, project.tools.join(', ') || null],
   ]
   const caseImages = getCaseImages(project)
 
   return <article className={`case-study case-study--${project.theme}`}>
     <motion.div className="case-study__nav" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: motionEase }}>
-      <a className="case-back" href={appPath('/work')} data-cursor-label="All work">{site.caseStudy.backLabel}<ArrowUpRight /></a>
+      <a className="case-back" href={appPath('/work')} data-cursor-label="All work">{caseStudySettings.backLabel}<ArrowUpRight /></a>
     </motion.div>
 
     <motion.header
@@ -571,7 +565,7 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionHeaderVariants}
     >
-      <h2 id="project-details">{site.caseStudy.metadataLabel}</h2>
+      <h2 id="project-details">{caseStudySettings.metadataLabel}</h2>
       {details.filter(([, value]) => value).map(([label, value]) => (
         <div key={label}><span>{label}</span><p>{value}</p></div>
       ))}
@@ -627,8 +621,8 @@ function SocialIcon({ label }: { label: string }) {
 function Contact() {
   return <SectionReveal className="contact-section" id="contact" labelledBy="contact-heading">
     <motion.div className="contact-section__copy" variants={sectionHeaderVariants}>
-      <h2 id="contact-heading">{personalInformation.contactHeading}</h2>
-      <p>{personalInformation.contactBody}</p>
+      <h2 id="contact-heading">{contact.heading}</h2>
+      <p>{contact.body}</p>
       <span className="contact-section__orbit" aria-hidden="true"><ArrowUpRight /></span>
     </motion.div>
     <motion.div className="contact-section__links" variants={staggerGridVariants}>

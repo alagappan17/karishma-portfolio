@@ -1,0 +1,26 @@
+{
+  "name": "Karishma Sharma",
+  "monogram": "KS",
+  "role": "Designer for human judgment in complex systems",
+  "profileImage": "/media/personal/karishma-sharma-profile.png",
+  "profileImageAlt": "Portrait of Karishma Sharma",
+  "profileImageLink": "",
+  "heading": "I design clarity for complex work.",
+  "body": "My work gives people a clear way to review, decide, and move forward inside systems that are anything but simple.",
+  "primaryAction": { "label": "Read selected case studies", "href": "/work" },
+  "secondaryAction": { "label": "How I work", "href": "/#about" },
+  "introduction": {
+    "segments": [
+      { "text": "I’m a " },
+      { "text": "UI/UX designer", "highlight": "blue" },
+      { "text": " who makes " },
+      { "text": "complex tools", "highlight": "lilac" },
+      { "text": " feel clear and usable. I work across AI, enterprise systems, and the everyday operations behind them. My focus is simple: give people the context, confidence, and control to make " },
+      { "text": "good decisions.", "highlight": "acid" }
+    ]
+  },
+  "workHeading": "Selected work, where clarity changes the work itself.",
+  "workBody": "A selection of interfaces shaped around real decisions: reviewing agreements, tracing shipments, and directing intelligent systems.",
+  "archiveLabel": "Browse all projects",
+  "archiveHref": "/work"
+}

@@ -265,10 +265,10 @@ content:
                   label: Paper
                 - name: signal
                   label: Signal
-  - name: personal-information
-    label: Personal Information
+  - name: home-page
+    label: Home Page
     type: file
-    path: src/data/personalInformation.json
+    path: src/data/homePage.json
     format: json
     operations:
       delete: false
@@ -277,17 +277,18 @@ content:
         label: Name
         type: string
         required: true
+        description: Shown in the home hero and site header.
       - name: monogram
-        label: Monogram
+        label: Header monogram
         type: string
         required: true
         description: The initials shown in the site header.
       - name: role
-        label: Role / professional title
+        label: Professional title
         type: string
         required: true
       - name: profileImage
-        label: Profile image
+        label: Hero profile image
         type: image
         required: true
         options:
@@ -303,11 +304,96 @@ content:
         label: Profile image destination link
         type: string
         description: Optional. When set, visitors can open this link by selecting the profile image.
-      - name: contactHeading
+      - name: heading
+        label: Hero heading
+        type: string
+        required: true
+      - name: body
+        label: Hero description
+        type: text
+        required: true
+      - name: primaryAction
+        label: Main hero link
+        type: object
+        fields:
+          - name: label
+            label: Link label
+            type: string
+            required: true
+          - name: href
+            label: Link destination
+            type: string
+            required: true
+      - name: secondaryAction
+        label: Secondary hero link
+        type: object
+        fields:
+          - name: label
+            label: Link label
+            type: string
+            required: true
+          - name: href
+            label: Link destination
+            type: string
+            required: true
+      - name: introduction
+        label: Scroll introduction
+        type: object
+        fields:
+          - name: segments
+            label: Text segments
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{text}"
+            description: Add segments in reading order. Highlight only the words that should receive an accent colour.
+            fields:
+              - name: text
+                label: Text
+                type: text
+                required: true
+              - name: highlight
+                label: Highlight colour
+                type: select
+                options:
+                  values:
+                    - name: blue
+                      label: Blue
+                    - name: lilac
+                      label: Lilac
+                    - name: acid
+                      label: Acid green
+      - name: workHeading
+        label: Selected-work heading
+        type: string
+        required: true
+      - name: workBody
+        label: Selected-work description
+        type: text
+        required: true
+      - name: archiveLabel
+        label: Browse-work link label
+        type: string
+        required: true
+      - name: archiveHref
+        label: Browse-work destination
+        type: string
+        required: true
+  - name: contact
+    label: Contact
+    type: file
+    path: src/data/contact.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: heading
         label: Contact heading
         type: string
         required: true
-      - name: contactBody
+      - name: body
         label: Contact message
         type: text
         required: true
@@ -321,6 +407,111 @@ content:
         required: true
       - name: behance
         label: Behance link
+        type: string
+        required: true
+  - name: navigation
+    label: Navigation
+    type: file
+    path: src/data/navigation.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: items
+        label: Navigation links
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Link label
+            type: string
+            required: true
+          - name: href
+            label: Link destination
+            type: string
+            required: true
+      - name: contactLabel
+        label: Contact link label
+        type: string
+        required: true
+      - name: contactHref
+        label: Contact link destination
+        type: string
+        required: true
+  - name: work-archive
+    label: Work Archive
+    type: file
+    path: src/data/workArchive.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: heading
+        label: Page heading
+        type: string
+        required: true
+      - name: body
+        label: Page description
+        type: text
+        required: true
+      - name: supportingText
+        label: Supporting text
+        type: text
+        required: true
+      - name: filterLabel
+        label: Filter control label
+        type: string
+        required: true
+      - name: allLabel
+        label: All-projects filter label
+        type: string
+        required: true
+      - name: controlsBody
+        label: Filter helper text
+        type: text
+        required: true
+  - name: case-study-settings
+    label: Case Study Page
+    type: file
+    path: src/data/caseStudySettings.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: backLabel
+        label: Back-link label
+        type: string
+        required: true
+      - name: metadataLabel
+        label: Project-details heading
+        type: string
+        required: true
+      - name: imagePlaceholderLabel
+        label: Placeholder image label
+        type: string
+        required: true
+      - name: roleLabel
+        label: Role field label
+        type: string
+        required: true
+      - name: industryLabel
+        label: Industry field label
+        type: string
+        required: true
+      - name: durationLabel
+        label: Timeframe field label
+        type: string
+        required: true
+      - name: platformLabel
+        label: Platform field label
+        type: string
+        required: true
+      - name: toolsLabel
+        label: Tools field label
         type: string
         required: true
   - name: experience
