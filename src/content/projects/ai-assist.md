@@ -1,4 +1,3 @@
----
 {
   "slug": "ai-assist",
   "order": 6,
@@ -20,7 +19,6 @@
   "coverCaption": "AI embedded in the delivery flow",
   "caseImages": []
 }
----
 
 ## Overview
 

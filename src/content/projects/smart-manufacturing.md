@@ -1,4 +1,3 @@
----
 {
   "slug": "smart-manufacturing",
   "order": 4,
@@ -20,7 +19,6 @@
   "coverCaption": "Operational signals in one field of view",
   "caseImages": []
 }
----
 
 ## Overview
 

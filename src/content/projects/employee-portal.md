@@ -1,4 +1,3 @@
----
 {
   "slug": "employee-portal",
   "order": 1,
@@ -19,7 +18,6 @@
   "coverCaption": "",
   "caseImages": []
 }
----
 
 ## Overview
 

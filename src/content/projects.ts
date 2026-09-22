@@ -31,8 +31,8 @@ type CaseStudy = {
 const files = import.meta.glob('./projects/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
 
 function parseCaseStudy(path: string, source: string): CaseStudy {
-  const match = source.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/)
-  if (!match) throw new Error(`Case study ${path} needs JSON frontmatter between --- markers.`)
+  const match = source.match(/^(\{[\s\S]*\})\n*([\s\S]*)$/)
+  if (!match) throw new Error(`Case study ${path} needs JSON frontmatter at the start of the file.`)
 
   let data: EditableProject
   try {

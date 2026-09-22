@@ -17,8 +17,8 @@ const projects = fs.readdirSync(caseStudiesDir)
   .filter((filename) => filename.endsWith('.md'))
   .map((filename) => {
     const source = fs.readFileSync(path.join(caseStudiesDir, filename), 'utf-8')
-    const match = source.match(/^---\s*\n([\s\S]*?)\n---/)
-    if (!match) throw new Error(`${filename} needs JSON frontmatter between --- markers.`)
+    const match = source.match(/^(\{[\s\S]*\})\n*([\s\S]*)$/)
+    if (!match) throw new Error(`${filename} needs JSON frontmatter at the start of the file.`)
     return JSON.parse(match[1])
   })
 

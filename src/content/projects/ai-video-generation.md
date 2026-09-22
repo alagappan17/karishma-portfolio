@@ -1,4 +1,3 @@
----
 {
   "slug": "ai-video-generation",
   "order": 11,
@@ -19,7 +18,6 @@
   "coverCaption": "",
   "caseImages": []
 }
----
 
 ## Overview
 

@@ -1,4 +1,3 @@
----
 {
   "slug": "vanguard-portal",
   "order": 5,
@@ -19,7 +18,6 @@
   "coverCaption": "",
   "caseImages": []
 }
----
 
 ## Overview
 

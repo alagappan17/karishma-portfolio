@@ -1,4 +1,3 @@
----
 {
   "slug": "contracts-navigator",
   "order": 12,
@@ -20,7 +19,6 @@
   "coverCaption": "A workspace for reviewing complex agreements",
   "caseImages": []
 }
----
 
 ## Overview
 

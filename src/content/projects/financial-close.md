@@ -1,4 +1,3 @@
----
 {
   "slug": "financial-close",
   "order": 3,
@@ -19,7 +18,6 @@
   "coverCaption": "",
   "caseImages": []
 }
----
 
 ## Overview
 

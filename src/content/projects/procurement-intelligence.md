@@ -1,4 +1,3 @@
----
 {
   "slug": "procurement-intelligence",
   "order": 9,
@@ -20,7 +19,6 @@
   "coverCaption": "Signals connected across procurement work",
   "caseImages": []
 }
----
 
 ## Overview
 

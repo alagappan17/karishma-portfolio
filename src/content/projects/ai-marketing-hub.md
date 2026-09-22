@@ -1,4 +1,3 @@
----
 {
   "slug": "ai-marketing-hub",
   "order": 8,
@@ -19,7 +18,6 @@
   "coverCaption": "",
   "caseImages": []
 }
----
 
 ## Overview
 

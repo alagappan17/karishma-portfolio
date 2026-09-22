@@ -1,4 +1,3 @@
----
 {
   "slug": "zora-ai",
   "order": 10,
@@ -20,7 +19,6 @@
   "coverCaption": "A digital workforce built for visibility and control",
   "caseImages": []
 }
----
 
 ## Overview
 

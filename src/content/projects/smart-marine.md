@@ -1,4 +1,3 @@
----
 {
   "slug": "smart-marine",
   "order": 2,
@@ -20,7 +19,6 @@
   "coverCaption": "A shared view of the shipment network",
   "caseImages": []
 }
----
 
 ## Overview
 

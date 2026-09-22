@@ -1,4 +1,3 @@
----
 {
   "slug": "behavioural-health-agent",
   "order": 7,
@@ -19,7 +18,6 @@
   "coverCaption": "",
   "caseImages": []
 }
----
 
 ## Overview
 
