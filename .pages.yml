@@ -359,6 +359,8 @@ content:
                 type: select
                 options:
                   values:
+                    - name: none
+                      label: None
                     - name: blue
                       label: Blue
                     - name: lilac

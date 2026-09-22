@@ -557,67 +557,71 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
   const caseImages = getCaseImages(project)
 
   return <article className={`case-study case-study--${project.theme}`}>
-    <motion.div className="case-study__nav" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: motionEase }}>
-      <a className="case-back" href={appPath('/work')} data-cursor-label="All work">{caseStudySettings.backLabel}<ArrowUpRight /></a>
-    </motion.div>
+    <div className="case-container">
+      <aside className="case-sidebar">
+        <motion.div className="case-study__nav" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: motionEase }}>
+          <a className="case-back" href={appPath('/work')} data-cursor-label="All work">{caseStudySettings.backLabel}<ArrowUpRight /></a>
+        </motion.div>
 
-    <motion.header
-      className="case-hero"
-      initial="hidden"
-      animate="visible"
-      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.05 } } }}
-    >
-      <motion.div className="case-hero__title" variants={cardItemVariants}>
-        <h1>{project.title}</h1>
-        <p className="case-summary">{project.summary}</p>
-      </motion.div>
-      <motion.div
-        className="case-hero__artifact-wrap"
-        variants={{ hidden: { opacity: 0, scale: 0.96, y: 24 }, visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.65, ease: motionEase } } }}
-      >
-        <ProjectArtifact project={project} image={caseImages[0]} className="case-hero__artifact" />
-        {caseImages[0].caption && <p className="case-hero__caption">{caseImages[0].caption}</p>}
-      </motion.div>
-    </motion.header>
+        <motion.div
+          className="case-sidebar__title"
+          initial="hidden" animate="visible"
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: motionEase, delay: 0.1 } } }}
+        >
+          <h1>{project.title}</h1>
+          <p className="case-summary">{project.summary}</p>
+          {caseImages[0].caption && <p className="case-hero__caption">{caseImages[0].caption}</p>}
+        </motion.div>
 
-    <motion.section
-      className="case-metadata"
-      aria-labelledby="project-details"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={sectionHeaderVariants}
-    >
-      <h2 id="project-details">{caseStudySettings.metadataLabel}</h2>
-      {details.filter(([, value]) => value).map(([label, value]) => (
-        <div key={label}><span>{label}</span><p>{value}</p></div>
-      ))}
-    </motion.section>
+        <motion.section
+          className="case-metadata"
+          aria-labelledby="project-details"
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: motionEase, delay: 0.2 } } }}
+        >
+          <h2 id="project-details">{caseStudySettings.metadataLabel}</h2>
+          {details.filter(([, value]) => value).map(([label, value]) => (
+            <div key={label}><span>{label}</span><p>{value}</p></div>
+          ))}
+        </motion.section>
+      </aside>
 
-    {caseImages.length > 1 && (
-      <motion.section
-        className="case-evidence"
-        aria-label="Supporting project visuals"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15, margin: '0px 0px -40px 0px' }}
-        variants={staggerGridVariants}
-      >
-        {caseImages.slice(1).map((image, index) => (
-          <motion.div
-            key={image.alt}
-            className="case-evidence__slot"
-            variants={{ hidden: { opacity: 0, y: 32, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: motionEase } } }}
+      <div className="case-content">
+        <motion.div
+          className="case-hero__artifact-wrap"
+          initial="hidden" animate="visible"
+          variants={{ hidden: { opacity: 0, scale: 0.98, y: 24 }, visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.65, ease: motionEase } } }}
+        >
+          <ProjectArtifact project={project} image={caseImages[0]} className="case-hero__artifact" />
+        </motion.div>
+
+        <div className="case-layout">
+          <MarkdownContent markdown={content} project={project} />
+        </div>
+
+        {caseImages.length > 1 && (
+          <motion.section
+            className="case-evidence"
+            aria-label="Supporting project visuals"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15, margin: '0px 0px -40px 0px' }}
+            variants={staggerGridVariants}
           >
-            <ProjectArtifact project={project} image={image} variant={index + 1} className="case-evidence__artifact" />
-            {image.caption && <p className="case-evidence__caption">{image.caption}</p>}
-          </motion.div>
-        ))}
-      </motion.section>
-    )}
-
-    <div className="case-layout">
-      <MarkdownContent markdown={content} project={project} />
+            {caseImages.slice(1).map((image, index) => (
+              <motion.div
+                key={image.alt}
+                className="case-evidence__slot"
+                variants={{ hidden: { opacity: 0, y: 32, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: motionEase } } }}
+              >
+                <ProjectArtifact project={project} image={image} variant={index + 1} className="case-evidence__artifact" />
+                {image.caption && <p className="case-evidence__caption">{image.caption}</p>}
+              </motion.div>
+            ))}
+          </motion.section>
+        )}
+      </div>
     </div>
 
     <motion.a
@@ -630,7 +634,7 @@ function CaseStudy({ project }: { project: ProjectRecord }) {
       variants={{ hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: motionEase } } }}
       whileHover={{ y: -4, transition: { duration: 0.25, ease: motionEase } }}
     >
-      <div className="next-project__copy"><strong>{nextProject.shortTitle}</strong><p>{nextProject.summary}</p></div>
+      <div className="next-project__copy"><strong>{nextProject.shortTitle}</strong></div>
       <span className="next-project__action">Next project<ArrowUpRight aria-hidden="true" /></span>
     </motion.a>
   </article>
